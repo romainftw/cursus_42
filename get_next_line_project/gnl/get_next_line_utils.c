@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:22 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/23 19:24:10 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:50:24 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -52,7 +53,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i++] = s2[j++];
 	}
 	str[i] = '\0';
-	free(*s1);
 	return (str);
 }
 
@@ -69,18 +69,17 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *string, int searchedChar)
 {
-	char	*p;
+	char	*str;
 
-	p = (char *)s;
-	while (*p != (char)c)
-	{
-		if (*p == '\0')
-			return (NULL);
-		p++;
-	}
-	return (p);
+	str = (char *)string;
+	while (*str != searchedChar && *str != 0)
+		str++;
+	if (*str == searchedChar)
+		return (str);
+	else
+		return (NULL);
 }
 
 void	*ft_calloc(size_t count, size_t size)

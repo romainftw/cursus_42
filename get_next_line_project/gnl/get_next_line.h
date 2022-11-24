@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:41 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/23 19:11:38 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:54:49 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlen(const char *s);
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(const char *string, int searchedChar);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
