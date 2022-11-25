@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:01 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/24 23:47:13 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:21:33 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,23 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (p);
 }
 
-char *ft_read_and_save(int fd, char *stockage)
+char	*ft_read_and_save(int fd, char *stockage)
 {
 	int		i;
-	int		j;
-	char	*buffer;
+	char	buffer[BUFFER_SIZE + 1];
 	
-	j = 0;
 	i = 1;
-	stockage = ft_calloc(1,1);
-	buffer = ft_calloc(BUFFER_SIZE, 1);
-	while (!ft_strchr(stockage, '\n'))
+	if (!stockage)
+		stockage = ft_calloc(1, 1);
+	while (i)
 	{
-		buffer = ft_calloc(BUFFER_SIZE, 1);
 		i = read(fd, buffer, BUFFER_SIZE);
-		stockage = ft_strjoin(stockage, buffer);
-		free(buffer);
 		if (i == -1)
-		{
-			free(buffer);
 			return(NULL);
-		}
-		if (i == 0)
-		{
-			stockage = ft_strjoin(stockage, buffer);
-			return (stockage);		
-		}	
+		buffer[i] = '\0';
+		stockage = ft_strjoin(stockage, buffer);
+		if (ft_strchr(buffer, '\n'))
+			break ;
 	}
 		return (stockage);
 }
@@ -73,16 +64,17 @@ char *ft_cut_and_move(char *buffer, char* str)
 	
 	j = 0;
 	i = ft_strlen(buffer);
-	str = ft_calloc(i , sizeof(char));
-	while (buffer[j] != '\n')
+	str = ft_calloc(i + 2, sizeof(char));
+	while (buffer[j] != '\n' && buffer[j])
 	{
 		str[j] = buffer[j];
-		i--;
 		j++;
 	}
-	str[j++] = '\n';
-	str[j++] = '\0';
-	
+	if (!buffer[j])
+		str[j] = '\0';
+	else
+		str[j] = '\n';
+	str[++j] = '\0';
 	return (str);
 }
 
@@ -91,28 +83,13 @@ char *get_next_line(int fd)
 	char				*str;
 	static char			*stockage;
 	
-	if (!fd)
+	if (!fd || fd < 0)
 		return (NULL);
-		
 	stockage = ft_read_and_save(fd, stockage);
-	
 	str = ft_calloc(1,1);
 	str = ft_cut_and_move(stockage, str);
 	stockage = ft_substr(stockage, ft_strlen(str), (ft_strlen(stockage) - ft_strlen(str)));
 	return(str);
 }
 
-int main(void)
-{
-	int fd = open("test.txt", O_RDONLY);
 
-	char *line;
-	while(1)
-	{
-		line =  get_next_line(fd);
-		if (line == NULL)
-			break;
-		printf ("%s",line );
-	}
-	 return 0;
-}

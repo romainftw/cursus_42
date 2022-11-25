@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:22 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/24 16:32:43 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:27:15 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len = (ft_strlen(s1) + ft_strlen(s2));
 	str = malloc(sizeof(char) * (len + 1));
+
 	if (!str)
 		return (0);
 	while (s1[i])
