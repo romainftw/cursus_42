@@ -6,7 +6,7 @@
 /*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:22 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/25 12:27:15 by r                ###   ########.fr       */
+/*   Updated: 2022/11/25 15:38:01 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ while (s[i])
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 
-	char	*str;
+	char		*str;
 	size_t		len;
-	size_t	i;
-	size_t	j;
+	size_t		i;
+	size_t		j;
 
 	j = 0;
 	i = 0;
@@ -53,6 +53,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i++] = s2[j++];
 	}
 	str[i] = '\0';
+	free(s1);
 	return (str);
 }
 
