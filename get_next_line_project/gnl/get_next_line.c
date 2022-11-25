@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
+/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:33:01 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/25 17:05:10 by r                ###   ########.fr       */
+/*   Updated: 2022/11/25 21:28:34 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	char	*p;
 	size_t	i;
 
-	i = 0;
+	i = -1;
 	if (!s[0])
 	{
 		free(s);
@@ -33,11 +33,8 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		free(s);
 		return (NULL);
 	}
-	while (i < len)
-	{
+	while (++i < len)
 		p[i] = s[start + i];
-		i++;
-	}
 	p[i] = '\0';
 	free (s);
 	return (p);
@@ -47,7 +44,7 @@ char	*ft_read_and_save(int fd, char *stockage)
 {
 	int		i;
 	char	buffer[BUFFER_SIZE + 1];
-	
+
 	i = 1;
 	if (!stockage)
 		stockage = ft_calloc(1, 1);
@@ -57,7 +54,7 @@ char	*ft_read_and_save(int fd, char *stockage)
 		if (i == -1)
 		{
 			free (stockage);
-			return(NULL);
+			return (NULL);
 		}
 		buffer[i] = '\0';
 		stockage = ft_strjoin(stockage, buffer);
@@ -66,21 +63,21 @@ char	*ft_read_and_save(int fd, char *stockage)
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
-		return (stockage);
+	return (stockage);
 }
 
-char *ft_cut_and_move(char *buffer, char* str)
+char	*ft_cut_and_move(char *buffer, char *str)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	j = 0;
 	i = ft_strlen(buffer);
 	if (!buffer[j])
 		return (NULL);
 	str = ft_calloc(i + 2, sizeof(char));
 	if (!str)
-		return(NULL);
+		return (NULL);
 	while (buffer[j] != '\n' && buffer[j])
 	{
 		str[j] = buffer[j];
@@ -94,12 +91,12 @@ char *ft_cut_and_move(char *buffer, char* str)
 	return (str);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	char				*str;
 	static char			*stockage = NULL;
-	
-	
+	size_t				len_str;
+
 	if (fd < 0)
 	{
 		if (stockage)
@@ -113,10 +110,11 @@ char *get_next_line(int fd)
 		return (NULL);
 	stockage = ft_read_and_save(fd, stockage);
 	if (!stockage)
-		return(NULL);
+		return (NULL);
 	str = ft_cut_and_move(stockage, str);
-	stockage = ft_substr(stockage, ft_strlen(str), (ft_strlen(stockage) - ft_strlen(str)));
+	len_str = ft_strlen(str);
+	stockage = ft_substr(stockage, len_str, (ft_strlen(stockage) - len_str));
 	if (!stockage && !str)
 		return (NULL);
-	return(str);
+	return (str);
 }
