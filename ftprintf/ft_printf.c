@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 18:01:41 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/28 20:27:33 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/28 23:16:34 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/29 00:55:13 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int ft_check(char input)
     return (0);
 }
 
-size_t ft_print_arg(va_list lst,const char *s)
+size_t ft_print_arg(va_list *lst,const char *s)
 {
     size_t  i;
     size_t  count;
@@ -29,17 +29,17 @@ size_t ft_print_arg(va_list lst,const char *s)
     count = 0;
     i = 1;
     if (s[i] == 'c')
-        count += ft_putchar(va_arg(lst, int));
+        count += ft_putchar(va_arg(*lst, int));
     if (s[i] == 's')
-        count += ft_putstr(va_arg(lst, char *));
+        count += ft_putstr(va_arg(*lst, char *));
     if (s[i] == 'i' || s[i] == 'd')
-        count += ft_putnbr(va_arg(lst, int));
+        count += ft_putnbr(va_arg(*lst, int));
     if (s[i] == 'u')
-        count += ft_putnbr_unsigned(va_arg(lst, unsigned int));
+        count += ft_putnbr_unsigned(va_arg(*lst, unsigned int));
     if (s[i] == 'x')
-        count += ft_putnbr_hexa(va_arg(lst, int), 1);
+        count += ft_putnbr_hexa(va_arg(*lst, int), 1);
     if (s[i] == 'X')
-        count += ft_putnbr_hexa(va_arg(lst, int), 2);
+        count += ft_putnbr_hexa(va_arg(*lst, int), 2);
     if (s[i] == 'p')
         count += ft_putchar('%');
     if (s[i] == '%')
@@ -59,7 +59,7 @@ int ft_printf(const char *str, ...)
     while (str[i])
     {
         if (str[i] == '%')
-            if (!ft_check(str[i + 1]))
+            if (!ft_check(str[i++]))
                 return (0);
         i++;
     }
@@ -68,18 +68,22 @@ int ft_printf(const char *str, ...)
     {
             if (str[i] == '%')
             {
-                count += ft_print_arg(lst, &str[i]);
-                i = i + 2;
-            } 
-            count += ft_putchar(str[i++]);
+                count += ft_print_arg(&lst, &str[i]);
+                i += 1;
+            }
+            else
+            count += ft_putchar(str[i]);
+            i++;
     }
     va_end(lst);
     return (count);
 }
 
+/*
 int main(void)
 {
-    printf("%d\n" ,ft_printf("%uxxx%sxxx", 10 , "9"));
+    printf("\n%d\n" ,ft_printf("%d%sXXXX XXXX", 10, " TASMERE"));
 
     return(0);
 }
+*/

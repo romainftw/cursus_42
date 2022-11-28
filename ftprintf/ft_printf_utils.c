@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:35:17 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/28 20:18:32 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/28 22:30:27 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t	ft_putnbr(int n)
 		}
 		i += ft_putchar((n % 10) + '0');
 	}
-    return (1);
+    return (i);
 }
 
 size_t	ft_putnbr_unsigned(unsigned int n)
