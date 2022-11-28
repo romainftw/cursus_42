@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:35:17 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/26 15:19:48 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:18:32 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,43 @@ size_t	ft_putnbr(int n)
 		{
 			ft_putnbr(n / 10);
 		}
-        i += 1;
-		ft_putchar((n % 10) + '0');
+		i += ft_putchar((n % 10) + '0');
 	}
+    return (1);
+}
+
+size_t	ft_putnbr_unsigned(unsigned int n)
+{
+    int i;
+    
+    i = 0;
+	if (n == 4294967295)
+    {
+		ft_putstr("4294967295");
+        return (11);
+	}
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+	}
+	i += ft_putchar((n % 10) + '0');
+    return (i);
+}
+
+size_t	ft_putnbr_hexa(int n, int base)
+{
+    size_t 	i;
+	char	base_min[16] = "0123456789abcdef";
+	char	base_maj[16] = "0123456789ABCDEF";
+	
+    i = 0;
+	if (n > 16)
+	{
+		ft_putnbr_hexa((n / 16), base);
+	}
+	if (base == 1)
+		i += ft_putchar((base_min[(n % 16)]));
+	if (base == 2)
+		i += ft_putchar((base_maj[(n % 16)]));
     return (i);
 }
