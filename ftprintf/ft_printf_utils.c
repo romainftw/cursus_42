@@ -6,13 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:35:17 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/29 18:55:01 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:37:58 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putchar(char c, int *count)
+void	ft_putchar(char c, int *count)
 {
 	*count += 1;
 	write(1, &c, 1);
@@ -24,19 +24,21 @@ void	ft_putstr(char const *s, int *count)
 
 	i = 0;
 	if (s)
+	{
 		while (s[i])
 		{
 			ft_putchar(s[i], count);
 			i++;
 		}
+	}
 	else
-		ft_putstr("(null)", count);			
+		ft_putstr("(null)", count);
 }
 
 void	ft_putnbr(int n, int *count)
 {
 	int	i;
-	
+
 	i = 0;
 	if (n == -2147483648)
 		ft_putstr("-2147483648", count);
@@ -46,7 +48,7 @@ void	ft_putnbr(int n, int *count)
 		{
 			ft_putchar('-', count);
 			n = n * -1;
-            i += 1;
+			i += 1;
 		}
 		if (n > 9)
 			ft_putnbr((n / 10), count);
@@ -63,9 +65,11 @@ void	ft_putnbr_unsigned(unsigned int n, int *count)
 
 void	ft_putnbr_hexa(unsigned int n, int base, int *count)
 {
-	char	base_min[16] = "0123456789abcdef";
-	char	base_maj[16] = "0123456789ABCDEF";
-	
+	char	*base_min;
+	char	*base_maj;
+
+	base_min = "0123456789abcdef";
+	base_maj = "0123456789ABCDEF";
 	if (n > 15)
 	{
 		ft_putnbr_hexa((n / 16), base, count);
@@ -73,9 +77,9 @@ void	ft_putnbr_hexa(unsigned int n, int base, int *count)
 	}
 	else
 	{
-	if (base == 1)
-		ft_putchar(((base_min[(n % 16)])), count);
-	if (base == 2)
-		ft_putchar(((base_maj[(n % 16)])), count);
+		if (base == 1)
+			ft_putchar(((base_min[(n % 16)])), count);
+		if (base == 2)
+			ft_putchar(((base_maj[(n % 16)])), count);
 	}
 }
