@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/09 16:54:14 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/09 16:22:30 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/09 16:50:56 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(char *tab)
+int	main(int argc, char **argv)
 {
-	size_t	len;
-	char	*b;
+	int	i;
 
-	len = ft_strlen(tab);
-	b = malloc(sizeof);
+	i = 1;
+	while (argc > i)
+	{
+		pushswap(argv[i]);
+		i++;
+	}
+	return (0);
 }
