@@ -1,3 +1,3 @@
-get_next_line_project/.DS_Store
-get_next_line_project/gnl/.DS_Store
-get_next_line_project/gnl/a.out
+*.DS_Store
+*a.out
+
