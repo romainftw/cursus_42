@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:19:37 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/15 19:16:45 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/10 02:03:45 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static int	count(long int i)
@@ -23,7 +24,7 @@ static int	count(long int i)
 	}
 	while (i > 0)
 	{
-		i /= 10;
+		i /= 10; 
 		count++;
 	}
 	return (count);
