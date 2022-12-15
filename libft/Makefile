@@ -48,13 +48,11 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 CC				= gcc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
-
 NAME			= libft.a
-
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rc $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS) $(BONUS_OBJS)
@@ -65,5 +63,6 @@ fclean:			clean
 re:				fclean $(NAME)
 
 bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rc  $(NAME) $(OBJS) $(BONUS_OBJS)
-.PHONY: all clean fclean re bonus
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY:			all clean fclean re bonus
