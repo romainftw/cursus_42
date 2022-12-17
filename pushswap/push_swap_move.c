@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_move.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/18 00:09:37 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/17 23:46:40 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_list
+void	sa_function(t_list **lst)
 {
-	int				element;
-	struct s_list	*next;
-}	t_list;
+	t_list	*temp;
+	t_list	*temp_s;
+	int		cache;
+	int		cache_s;
 
-void	push_swap(char *tab);
-size_t	ft_strlen(const char *s);
+	temp = *lst;
+	temp_s = *lst;
+	if (!lst)
+		return ;
+	temp = temp->next;
+	cache = temp->element;
+	cache_s = temp_s->element;
+	temp->element = cache_s;
+	temp_s->element = cache;
+}
 
-#endif
+
