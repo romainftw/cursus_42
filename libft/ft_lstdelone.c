@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:29:20 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/14 17:22:52 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:16:06 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (!lst || !del)
 		return ;
 	temp = lst;
-	del(temp->content);
+	del(temp->element);
 	free(temp);
 }

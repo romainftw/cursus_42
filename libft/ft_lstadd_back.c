@@ -6,22 +6,30 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:54:03 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/14 15:20:14 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/18 19:19:29 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	lst_addback(t_list **lst, t_list *new)
 {
-	t_list	*temp;
+	t_list	*tmp;
 
-	temp = 0;
+	tmp = 0;
 	if (!(*lst))
 		*lst = new;
 	else
 	{
-		temp = ft_lstlast(*lst);
-		temp->next = new;
+		tmp = *lst;
+		while (tmp)
+		{
+			if (!tmp->next)
+			{
+				tmp->next = new;
+				break ;
+			}
+			tmp = tmp->next;
+		}
 	}
 }
