@@ -1,24 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utilities.c                              :+:      :+:    :+:   */
+/*   push_swap_lst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 16:36:24 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/18 19:21:03 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/18 19:20:40 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/18 19:21:07 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-size_t	ft_strlen(const char *s)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
 
+t_list	*lst_new(int data)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	new->element = data;
+	new->next = NULL;
+	return (new);
+}
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*temp;
+
+	temp = 0;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		temp = ft_lstlast(*lst);
+		temp->next = new;
+	}
+}
