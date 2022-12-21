@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/18 19:34:08 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/20 20:44:20 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@ void	push_swap(char *tab);
 void	s_function(t_list **lst);
 void	p_function(t_list **slack_a, t_list **slack_b);
 void	r_function(t_list **slack);
+void	rr_function(t_list **slack);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
 size_t	ft_strlen(const char *s);
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+t_list	*lst_new(int data);
+t_list	*ft_prevlast(t_list *lst);
 
 #endif

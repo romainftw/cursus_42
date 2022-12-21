@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/18 19:32:12 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/20 20:37:06 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ void	r_function(t_list **slack)
 	lst_addback(&temp, lst_new(cache));
 	*slack = temp->next;
 	free(*slack);
+}
+
+void	rr_function(t_list **slack)
+{
+	t_list				*temp;
+	t_list				*temp_a;
+
+	if (!slack)
+		return ;
+	temp_a = *slack;
+	temp_a = ft_prevlast(temp_a);
+	temp = temp_a->next;
+	temp_a->next->next = *slack;
+	temp_a->next = NULL;
+	*slack = temp;
+	free(temp_a);
 }

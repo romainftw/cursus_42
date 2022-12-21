@@ -6,9 +6,11 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:20:40 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/18 19:21:07 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/20 20:43:19 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
@@ -41,4 +43,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		temp = ft_lstlast(*lst);
 		temp->next = new;
 	}
+}
+
+t_list	*ft_prevlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
