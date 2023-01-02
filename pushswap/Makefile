@@ -2,6 +2,7 @@ SRCS    =   push_swap_utilities.c/
 			main.c/
 			push_swap.c/
 			push_swap.h
+			
 OBJS    =   ${SRCS:.c=.o}
 RM      =   rm -f
 CFLAGS  =   -Wall -Wextra -Werror

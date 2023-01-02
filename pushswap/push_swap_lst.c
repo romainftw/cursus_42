@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:20:40 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/20 20:43:19 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/02 11:09:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ t_list	*ft_prevlast(t_list *lst)
 	if (!lst)
 		return (NULL);
 	while (lst->next->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 	{
 		lst = lst->next;
 	}

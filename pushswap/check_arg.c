@@ -1,38 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 16:22:30 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/02 11:10:13 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/02 10:12:44 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	pars_one(char *tab)
 {
-	int		i;
-	char	*tab_temp;
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	while (tab[i])
+	{
+		if (tab[i] < '0' || tab [i] > '9')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (tab[i])
+	{
+		while (tab[j])
+		{
+			if (tab[i] == tab[j])
+				return (0);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (1);
+}
+
+int	pars_sec(char *tab)
+{
+	int	i;
 
 	i = 0;
-	if (argc <= 1)
+	if (!pars_one(tab))
 		return (0);
-	while (*argv[i - 1])
-		i ++;
-	tab_temp = malloc(sizeof(int) * i);
-	i = 0;
-	while (argv[i])
+	while (tab[i])
 	{
-		tab_temp[i] = *argv[i +1];
-		i ++;
-	}
-	if (!pars_sec(tab_temp))
-	{
-		free(tab_temp);
-		return (0);
+		if (!(tab[i] < tab[i + 1]))
+			return (1);
+		i++;
 	}
 	return (0);
 }
