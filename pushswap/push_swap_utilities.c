@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:36:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/02 11:17:59 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/03 17:33:00 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
 
 int	ft_atoi(const char *str)
 {
@@ -47,4 +46,33 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * neg);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char		*str;
+	size_t		len;
+	size_t		i;
+	size_t		j;
+
+	j = 0;
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	len = (ft_strlen(s1) + ft_strlen(s2));
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		str[i++] = s2[j++];
+	}
+	str[i] = '\0';
+	free (s1);
+	return (str);
 }

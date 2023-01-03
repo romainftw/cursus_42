@@ -1,7 +1,8 @@
-SRCS    =   push_swap_utilities.c/
-			main.c/
-			push_swap.c/
-			push_swap.h
+SRCS    =   push_swap_utilities.c \
+			push_swap_lst.c \
+			main.c \
+			push_swap.c \
+			push_swap_move.c \
 			
 OBJS    =   ${SRCS:.c=.o}
 RM      =   rm -f
