@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/02 10:12:44 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:39:09 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	pars_sec(char *tab)
 	int	i;
 
 	i = 0;
+	printf("-------------------------pars1-------------");
 	if (!pars_one(tab))
 		return (0);
 	while (tab[i])

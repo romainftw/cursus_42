@@ -7,7 +7,7 @@ SRCS    =   push_swap_utilities.c \
 OBJS    =   ${SRCS:.c=.o}
 RM      =   rm -f
 CFLAGS  =   -Wall -Wextra -Werror
-NAME    = push_swap.a
+NAME    = push_swap
 LIB     = ft
 all:    ${NAME}
 .c.o:

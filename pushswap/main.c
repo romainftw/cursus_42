@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:22:30 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/03 17:35:59 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:36:26 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	i = 0;
-	while (argv[i])
-	{
-		tab_temp[i] = *argv[i +1];
-		i ++;
-	}
+	printf("----------------------------main---------------------\n");
+	tab_temp = ft_strjoin(tab_temp, argv[1]);
 	printf("----------------------------main---------------------\n");
 	if (!pars_sec(tab_temp))
 	{
 		free(tab_temp);
 		return (0);
 	}
+	printf("----------------------------main---------------------\n");
 	return (0);
 }
