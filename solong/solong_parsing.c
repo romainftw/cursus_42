@@ -6,26 +6,19 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 14:17:16 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:21:12 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-int	pars_one(char *map)
+int	pars_first(char *map_file)
 {
-	int	fd;
+	char	**map;
 
-	fd = open(map, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("FILE PROBLEM");
+	map = NULL;
+	map = copy_map(map_file, map);
+	if (!compo_check(map) || !line_check(map))
 		return (0);
-	}
-	while ()
-	{
-		/* code */
-	}
-	
-	return (0);
+	return (1);
 }

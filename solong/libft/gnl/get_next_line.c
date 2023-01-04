@@ -3,118 +3,120 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arastell <arastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 21:33:01 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/25 21:28:34 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/11 14:33:07 by arastell          #+#    #+#             */
+/*   Updated: 2022/11/28 14:03:29 by arastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_get_line(char *buffer)
 {
-	char	*p;
+	char	*line;
+	int		i;
+
+	if (buffer[0] == '\0')
+		return (0);
+	line = malloc(sizeof(char) * (ft_count_malloc(buffer) + 1));
+	if (!line)
+		return (0);
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+	{
+		line[i] = buffer[i];
+		i++;
+	}
+	if (buffer[i] == '\n')
+	{
+		line[i] = '\n';
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+char	*ft_del_line(char *buffer)
+{
+	char	*tmp;
 	size_t	i;
 
-	i = -1;
-	if (!s[0])
+	i = 0;
+	while (buffer[i])
 	{
-		free(s);
+		if (buffer[i] == '\n')
+		{
+			i++;
+			break ;
+		}
+		i++;
+	}
+	if (!buffer[i])
+	{
+		free(buffer);
 		return (0);
 	}
-	if (len > ft_strlen(s))
-		len = (ft_strlen(s) - start);
-	if (start > ft_strlen(s))
-		len = 0;
-	p = malloc(sizeof(char) * (len) + 1);
-	if (!p)
-	{
-		free(s);
-		return (NULL);
-	}
-	while (++i < len)
-		p[i] = s[start + i];
-	p[i] = '\0';
-	free (s);
-	return (p);
+	tmp = malloc(sizeof(char) * (ft_strlen(buffer) + 1));
+	if (!tmp)
+		return (0);
+	ft_strlcpy(tmp, buffer + i, ft_strlen(buffer));
+	free(buffer);
+	return (tmp);
 }
 
-char	*ft_read_and_save(int fd, char *stockage)
+char	*ft_join_buff(char *dst, char *src)
 {
-	int		i;
-	char	buffer[BUFFER_SIZE + 1];
+	size_t	i;
+	char	*tmp;
 
-	i = 1;
-	if (!stockage)
-		stockage = ft_calloc(1, 1);
-	while (i)
-	{
-		i = read(fd, buffer, BUFFER_SIZE);
-		if (i == -1)
-		{
-			free (stockage);
-			return (NULL);
-		}
-		buffer[i] = '\0';
-		stockage = ft_strjoin(stockage, buffer);
-		if (!stockage)
-			return (NULL);
-		if (ft_strchr(buffer, '\n'))
-			break ;
-	}
-	return (stockage);
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	tmp = malloc(sizeof(char) * (ft_strlen(dst) + BUFFER_SIZE + 1));
+	if (!tmp)
+		return (0);
+	i = ft_strlcpy(tmp, dst, ft_strlen(dst) + 1);
+	ft_strlcpy(tmp + i, src, ft_strlen(src) + 1);
+	free(dst);
+	return (tmp);
 }
 
-char	*ft_cut_and_move(char *buffer, char *str)
+char	*ft_gnl_read(int fd, char *buffer)
 {
-	int	i;
-	int	j;
+	char	tmp_buffer[BUFFER_SIZE + 1];
+	int		res;
 
-	j = 0;
-	i = ft_strlen(buffer);
-	if (!buffer[j])
-		return (NULL);
-	str = ft_calloc(i + 2, sizeof(char));
-	if (!str)
-		return (NULL);
-	while (buffer[j] != '\n' && buffer[j])
+	res = 1;
+	while (res != 0 && !ft_contain(buffer, '\n'))
 	{
-		str[j] = buffer[j];
-		j++;
+		res = read(fd, tmp_buffer, BUFFER_SIZE);
+		if (res == -1)
+			return (0);
+		tmp_buffer[res] = '\0';
+		buffer = ft_join_buff(buffer, tmp_buffer);
 	}
-	if (!buffer[j])
-		str[j] = '\0';
-	else
-		str[j] = '\n';
-	str[++j] = '\0';
-	return (str);
+	return (buffer);
 }
 
 char	*get_next_line(int fd)
 {
-	char				*str;
-	static char			*stockage = NULL;
-	size_t				len_str;
+	static char	*buffer[MAX_FD];
+	char		*line;
 
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (0);
+	if (!buffer[fd])
 	{
-		if (stockage)
-		{
-			free(stockage);
-			stockage = NULL;
-		}
+		buffer[fd] = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!buffer[fd])
+			return (0);
+		buffer[fd][0] = '\0';
 	}
-	str = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	stockage = ft_read_and_save(fd, stockage);
-	if (!stockage)
-		return (NULL);
-	str = ft_cut_and_move(stockage, str);
-	len_str = ft_strlen(str);
-	stockage = ft_substr(stockage, len_str, (ft_strlen(stockage) - len_str));
-	if (!stockage && !str)
-		return (NULL);
-	return (str);
+	buffer[fd] = ft_gnl_read(fd, buffer[fd]);
+	if (!buffer[fd])
+		return (0);
+	line = ft_get_line(buffer[fd]);
+	buffer[fd] = ft_del_line(buffer[fd]);
+	return (line);
 }

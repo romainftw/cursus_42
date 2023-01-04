@@ -1,5 +1,6 @@
 SRCS		=	main.c \
-				solong_parsing.c
+				solong_parsing.c \
+				solong_map.c
 				
 
 OBJS    	=   $(SRCS:.c=.o)
@@ -8,7 +9,7 @@ RM			=	rm -f
 
 CC			=	cc
 
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 
 NAME		=	so_long
 
