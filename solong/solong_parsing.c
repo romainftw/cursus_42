@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:20:34 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:17:16 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 int	pars_one(char *map)
 {
-	int fd;
+	int	fd;
 
 	fd = open(map, O_RDONLY);
-	if (fd == -1)
+	if (fd < 0)
+	{
+		perror("FILE PROBLEM");
 		return (0);
+	}
+	while ()
+	{
+		/* code */
+	}
+	
 	return (0);
 }
