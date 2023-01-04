@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/10 22:50:38 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/20 14:15:30 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "solong.h"
-
-int	main(int arc, char **arg)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (arc != 2)
+	void	*s;
+
+	if (size >= SIZE_MAX || count >= SIZE_MAX)
 		return (0);
-	pars_one(arg[1]);
+	s = malloc(size * count);
+	if (!s)
+		return (0);
+	ft_memset(s, 0, count * size);
+	return (s);
 }

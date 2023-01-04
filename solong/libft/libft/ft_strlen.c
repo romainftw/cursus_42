@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/07 17:43:49 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/08 11:18:50 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "solong.h"
-
-int	main(int arc, char **arg)
+size_t	ft_strlen(const char *s)
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

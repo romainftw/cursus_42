@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/10 01:36:47 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/18 19:44:09 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	main(int arc, char **arg)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

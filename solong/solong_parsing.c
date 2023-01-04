@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   solong_parsing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/04 13:20:34 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-int	main(int arc, char **arg)
+int	pars_one(char *map)
 {
-	if (arc != 2)
+	int fd;
+
+	fd = open(map, O_RDONLY);
+	if (fd == -1)
 		return (0);
-	pars_one(arg[1]);
+	return (0);
 }

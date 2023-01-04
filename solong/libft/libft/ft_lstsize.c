@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/10 01:25:19 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/10 01:36:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	main(int arc, char **arg)
+int	ft_lstsize(t_list *lst)
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = lst;
+	while (temp)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (i);
 }

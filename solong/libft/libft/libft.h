@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:52:40 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 11:40:46 by roperrin         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:27:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-char	*get_next_line(int fd);
-int		ft_printf(const char *str, ...);
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

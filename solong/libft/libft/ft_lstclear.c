@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/14 15:47:57 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/15 19:19:10 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	main(int arc, char **arg)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	t_list	*temp;
+	t_list	*temp_next;
+
+	if (!lst || !del)
+		return ;
+	temp = *lst;
+	temp_next = *lst;
+	while (temp)
+	{
+		temp_next = temp_next->next;
+		ft_lstdelone(temp, del);
+		temp = temp_next;
+	}
+	*lst = NULL;
 }

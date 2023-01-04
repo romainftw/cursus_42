@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/14 15:29:20 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/17 19:16:06 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	main(int arc, char **arg)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	t_list	*temp;
+
+	if (!lst || !del)
+		return ;
+	temp = lst;
+	del(temp->element);
+	free(temp);
 }

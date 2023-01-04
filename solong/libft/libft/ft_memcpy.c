@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/10 15:51:30 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/15 15:09:56 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "solong.h"
-
-int	main(int arc, char **arg)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	char	*s1;
+
+	if (!dst && !src)
+		return (NULL);
+	s1 = (char *)dst;
+	while (n)
+	{
+		*(char *)s1 = *(char *)src;
+		s1++;
+		src++;
+		n--;
+	}
+	return (dst);
 }

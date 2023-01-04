@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                      :+: :+:     :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 13:30:47 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/07 18:12:16 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/15 19:47:39 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "solong.h"
-
-int	main(int arc, char **arg)
+int	ft_toupper(int c)
 {
-	if (arc != 2)
-		return (0);
-	pars_one(arg[1]);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }
