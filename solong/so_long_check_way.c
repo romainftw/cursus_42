@@ -1,24 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   so_long_check_way.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 15:29:20 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/17 19:16:06 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/19 13:04:26 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/19 13:05:46 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "solong.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
-{
-	t_list	*temp;
-
-	if (!lst || !del)
-		return ;
-	temp = lst;
-	del(temp->element);
-	free(temp);
-}
+int possible(char **map)

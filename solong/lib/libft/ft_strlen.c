@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong_parsing.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 13:06:05 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/07 17:43:49 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/19 09:50:39 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "libft.h"
 
-int	pars_first(char *map_file)
+size_t	ft_strlen(const char *s)
 {
-	char	**map;
+	size_t	i;
 
-	map = NULL;
-	map = copy_map(map_file, map);
-	if (!compo_check(map) || !line_check(map))
-	{
-		printf("compo %d\n", compo_check(map));
-		printf("line  %d\n", line_check(map));
-		return (0);
-	}
-	if (!line_size_check(map) || !col_size_check(map))
-		return (0);
-	if (!possible(map))
-		return (0);
-	return (1);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

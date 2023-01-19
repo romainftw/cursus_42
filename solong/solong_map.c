@@ -6,14 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:05:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/04 18:26:31 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/19 12:24:21 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
 char	**map_size(char *map)
-
 {
 	int		fd;
 	int		i;
@@ -90,18 +89,3 @@ int	compo_check(char **map)
 	return (1);
 }
 
-int	line_check(char **map)
-{
-	int	len_line;
-	int	i;
-
-	i = 0;
-	len_line = ft_strlen(map[0]);
-	if (ft_strchr(map[0], '1'))
-		return (0);
-	//while (map[i])
-	//{
-		
-	//}
-	return (1);
-}

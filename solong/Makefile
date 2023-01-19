@@ -1,34 +1,45 @@
 SRCS		=	main.c \
 				solong_parsing.c \
-				solong_map.c
-				
+				solong_map.c \
+				so_long_map_pars.c \
+				so_long_check_way.c 
 
-OBJS    	=   $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-RM			=	rm -f
+RM		=	rm -f
 
-CC			=	cc
+LIB		=	libso_long.a
 
-FLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 
-NAME		=	so_long
+FRAMEWORK	= -framework OpenGl -framework AppKit
 
-.c.o:
-		$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+LIB_PATH = -lmlx -L /usr/local/lib/ -L./lib/libft -l ft -L./lib/ft_printf -l ftprintf -L./lib/gnl -l gnl -L. -l so_long
 
-$(NAME):	$(OBJS)
-		make -C libft
-		$(CC) $(FLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -L. libft/libft.a -o $(NAME)
+NAME = so_long
 
+.c.o:	gcc ${CFLAGS} -I /usr/local/include/ -c $< -o $@
 
-all:		$(NAME)
+$(NAME): $(OBJS)
+	make -C lib/libft
+	make -C lib/gnl
+	make -C lib/ft_printf
+	ar crs $(LIB) $(OBJS)
+	gcc ${CFLAGS} -I /usr/local/include/ ${FRAMEWORK} ${LIB_PATH} -o ${NAME}
+
+all: $(NAME)
 
 clean:
-		make clean -C libft
-		$(RM) $(OBJS)
+	make clean -C lib/libft
+	make clean -C lib/gnl
+	make clean -C lib/ft_printf
+	${RM} ${OBJS}
 
-fclean:		clean
-		make fclean -C libft
-		$(RM) $(NAME)
+fclean:	clean
+	make fclean -C lib/libft
+	make fclean -C lib/gnl
+	make fclean -C lib/ft_printf
+	${RM} ${NAME} ${LIB}
 
-re:		fclean all
+re:	fclean all
+.PHONY: all clean flcean re

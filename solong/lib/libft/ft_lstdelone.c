@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 17:43:49 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/08 11:18:50 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/14 15:29:20 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/19 09:57:56 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	size_t	i;
+	t_list	*temp;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!lst || !del)
+		return ;
+	temp = lst;
+	del(temp->content);
+	free(temp);
 }
