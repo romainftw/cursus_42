@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 13:06:05 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:36:20 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 int	pars_first(char *map_file)
 {
+	char	**map_pars;
 	char	**map;
 
 	map = NULL;
-	map = copy_map(map_file, map);
-	if (!compo_check(map) || !line_check(map))
+	map_pars = NULL;
+	map_pars = copy_map(map_file, map_pars);
+	map = copy_map(map_file, map_pars);
+	if (!compo_check(map_pars) || !line_check(map_pars))
 	{
-		printf("compo %d\n", compo_check(map));
-		printf("line  %d\n", line_check(map));
+		printf("compo %d\n", compo_check(map_pars));
+		printf("line  %d\n", line_check(map_pars));
 		return (0);
 	}
-	if (!line_size_check(map) || !col_size_check(map))
+	if (!line_size_check(map_pars) || !col_size_check(map_pars))
 		return (0);
-	if (!possible(map))
+	if (x_map(map_pars))
 		return (0);
 	return (1);
 }

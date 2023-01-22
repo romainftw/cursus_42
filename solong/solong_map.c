@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:05:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 12:24:21 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:04:38 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ int	compo_check(char **map)
 		}
 		i++;
 	}
-	if (k > 2)
+	if (k != 2)
 		return (0);
 	return (1);
 }
-

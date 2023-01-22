@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 13:06:16 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:15:44 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 # include "lib/ft_printf/ft_printf.h"
 # include "lib/gnl/get_next_line.h"
 
-
 int		pars_first(char *map_file);
 int		compo_check(char **map);
 int		line_check(char **map);
 int		line_size_check(char **map);
 int		col_size_check(char **map);
 int		possible(char **map);
+int		x_map(char **map);
 
 char	**copy_map(char *map_file, char **map);
 char	**map_size(char *map);
