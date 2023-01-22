@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:04:26 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 15:39:36 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:53:29 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ int	x_map(char **map)
 		i = 0;
 		j++;
 	}
-	if (!possible(map))
-		return (0);
+		possible(map);
+		possible(map);
+		possible(map);
+		possible(map);
+		possible(map);
 	return (1);
 }
 
@@ -45,25 +48,20 @@ int	possible(char **map)
 
 	i = 0;
 	j = 0;
-	printf("%s\n", map[j]);
-	while (map[++j])
+	while (map[j])
 	{
-		printf("%s\n", map[j]);
-		while (map[j][++i])
-		{
-			if (map[j][i] == 'x')
-			{
-				if (map[j][i + 1] == 0)
-					map[j][i + 1] = 'x';
-				if (map[j][i - 1] == 0)
-					map[j][i - 1] = 'x';
-				if (map[j + 1][i] == 0)
-					map[j + 1][i] = 'x';
-				if (map[j - 1][i] == 0)
-					map[j - 1][i] = 'x';
-			}
-		}
+		while (map[j][i])
+		i++;
+		if (map[j][i + 1] == '0')
+			return (1);
+		if (map[j][i - 1] == '0')
+			return (1);
+		if (map[j + 1][i] == '0')
+			return (1);
+		if (map[j - 1][i] == '0')
+			return (1);
+		j++;
 		i = 0;
 	}
-	return (1);
+	return (0);
 }
