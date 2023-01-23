@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 15:15:44 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:06:52 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int		line_size_check(char **map);
 int		col_size_check(char **map);
 int		possible(char **map);
 int		x_map(char **map);
+int		change_zero_to_x(char **map);
+int		print_map(char **map);
+int		possible_exit(char **map);
+int		collect_check(char **map);
 
 char	**copy_map(char *map_file, char **map);
 char	**map_size(char *map);

@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:21:20 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 12:56:22 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:06:37 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,30 @@ int	col_size_check(char **map)
 		x = 0;
 		j++;
 	}
+	return (1);
+}
+
+int	collect_check(char **map)
+{
+	int	i;
+	int	j;
+	int	x;
+
+	x = 0;
+	i = 0;
+	j = 0;
+	while (map[j])
+	{
+		while (map[j][i])
+		{
+			if (map[j][i] == 'C')
+			x = 1;
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+	if (x == 1)
+		return (0);
 	return (1);
 }

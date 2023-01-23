@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_print_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 16:09:31 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/05 17:45:37 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/23 12:18:50 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/23 12:19:04 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strrchr(const char *s, int c)
+int	print_map(char **map)
 {
-	int		i;
+	int	i;
+	int	j;
 
-	i = ft_strlen(s);
-	while (i >= 0)
+	i = 0;
+	j = 0;
+	while (map[j])
 	{
-		if (s[i] == (char) c)
-			return ((char *)s + i);
-		i--;
+		printf("%s\n", map[j]);
+		while (map[j][i])
+		{
+			i++;
+		}
+		i = 0;
+		j++;
 	}
-	return (NULL);
+	printf("\n");
+	return (1);
 }

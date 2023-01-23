@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:04:26 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/23 09:31:27 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:18:57 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,55 @@ int	x_map(char **map)
 		i = 0;
 		j++;
 	}
-		possible(map);
-		possible(map);
-		possible(map);
-		possible(map);
-		possible(map);
-	return (1);
+	if (change_zero_to_x(map))
+	{
+		if (possible_exit(map))
+			return (1);
+	}
+	return (0);
 }
 
-int	possible(char **map)
+int	possible_j(char **map, int j, int i)
+{
+	if (map[j][i] == 'x')
+	{
+		if (map[j + 1][i] == '0'
+			|| map[j + 1][i] == 'C')
+		{
+			map[j + 1][i] = 'x';
+			return (1);
+		}
+		if ((map[j - 1][i] == '0'
+			|| map[j - 1][i] == 'C'))
+		{
+			map[j - 1][i] = 'x';
+			return (1);
+		}
+	}
+	return (0);
+}
+
+int	possible_i(char **map, int j, int i)
+{
+	if (map[j][i] == 'x')
+	{
+		if (map[j][i + 1] == '0'
+			|| map[j][i + 1] == 'C')
+		{
+			map[j][i + 1] = 'x';
+			return (1);
+		}
+		if (map[j][i - 1] == '0'
+			|| map[j][i - 1] == 'C')
+		{
+			map[j][i - 1] = 'x';
+			return (1);
+		}
+	}
+	return (0);
+}
+
+int	change_zero_to_x(char **map)
 {
 	int	i;
 	int	j;
@@ -49,24 +89,49 @@ int	possible(char **map)
 	i = 0;
 	j = 0;
 	while (map[j])
-	{printf("%s\n", map[j]);
+	{
 		while (map[j][i])
 		{
-			if (map[j][i] == 'x')
+			if (possible_i(map, j, i) || possible_j(map, j, i))
 			{
-				if (map[j][i + 1] == '0')
-					map[j][i + 1] = 'x';
-				if (map[j][i - 1] == '0')
-					map[j][i - 1] = 'x';
-				if (map[j + 1][i] == '0')
-					map[j + 1][i] = 'x';
-				if (map[j - 1][i] == '0')
-					map[j - 1][i] = 'x';
+				i = 0;
+				j = 0;
 			}
 			i++;
 		}
+		if (possible_i(map, j, i) || possible_j(map, j, i))
+			j = 0;
 		i = 0;
 		j++;
 	}
+	return (1);
+}
+
+int	possible_exit(char **map)
+{
+	int		i;
+	int		j;
+	int		x;
+
+	i = 0;
+	j = 0;
+	x = 0;
+	while (map[++j])
+	{
+		while (map[j][++i])
+		{
+			if (map[j][i] == 'E')
+			{
+				if ((map[j][i + 1] && map[j][i + 1] == 'x')
+					|| (map[j][i - 1] && map[j][i - 1] == 'x')
+						|| (map[j + 1][i] && map[j + 1][i] == 'x')
+							|| (map[j - 1][i] && map[j - 1][i] == 'x'))
+					x = 1;
+			}
+		}
+		i = 0;
+	}
+	if (x == 1)
+		return (1);
 	return (0);
 }
