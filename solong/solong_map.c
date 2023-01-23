@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:05:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/19 15:04:38 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:23:42 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ char	**map_size(char *map)
 	i = 1;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-	{
-		perror("FILE PROBLEM");
 		return (0);
-	}
 	while (1)
 	{
 		line = get_next_line(fd);
