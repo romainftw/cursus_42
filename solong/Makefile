@@ -4,7 +4,9 @@ SRCS		=	main.c \
 				so_long_map_pars.c \
 				so_long_check_way.c \
 				so_long_graphic.c \
-				solong_util.c
+				solong_util.c \
+				so_long_hook.c \
+				move_hook.c
 
 OBJS = $(SRCS:.c=.o)
 

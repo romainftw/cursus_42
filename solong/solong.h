@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 15:05:52 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:33:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,17 @@ int		print_map(char **map);
 int		possible_exit(char **map);
 int		collect_check(char **map);
 int		check_extension(char **arg);
+int		move_player(int keycode, t_data *mlx);
+int		notify(int keycode, void *param);
+int		up_move(int j, int i, t_data *mlx);
+int		down_move(int j, int i, t_data *mlx);
+int		right_move(int j, int i, t_data *mlx);
+int		left_move(int j, int i, t_data *mlx);
+int		player_pos(t_data *mlx, int move);
+void	choose_move(t_data *mlx, int j, int i, int move);
 void	setup_mlx(char **map);
 void	map_gen(t_data *mlx);
+int		exit_ok(t_data *mlx);
 
 int		print_map(char **map);
 
