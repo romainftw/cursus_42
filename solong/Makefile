@@ -2,7 +2,9 @@ SRCS		=	main.c \
 				solong_parsing.c \
 				solong_map.c \
 				so_long_map_pars.c \
-				so_long_check_way.c 
+				so_long_check_way.c \
+				so_long_graphic.c \
+				solong_util.c
 
 OBJS = $(SRCS:.c=.o)
 

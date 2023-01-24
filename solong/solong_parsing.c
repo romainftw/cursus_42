@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:28:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/23 13:32:12 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 13:37:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	pars_first(char *map_file)
 	map = NULL;
 	map_pars = NULL;
 	map_pars = copy_map(map_file, map_pars);
-	map = copy_map(map_file, map_pars);
+	map = copy_map(map_file, map);
 	if (!compo_check(map_pars) || !line_check(map_pars))
 		return (0);
 	if (!line_size_check(map_pars) || !col_size_check(map_pars))
@@ -29,6 +29,7 @@ int	pars_first(char *map_file)
 		return (0);
 	if (!collect_check(map_pars))
 		return (0);
+	setup_mlx(map);
 	return (1);
 }
 

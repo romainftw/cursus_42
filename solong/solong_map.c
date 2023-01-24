@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:05:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/23 13:23:42 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:35:37 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	**map_size(char *map)
 	int		i;
 	char	*line;
 	char	**save_map;
+	t_data	mlx;
 
 	i = 1;
 	fd = open(map, O_RDONLY);
@@ -31,6 +32,7 @@ char	**map_size(char *map)
 		free(line);
 		i++;
 	}
+	mlx.line = i;
 	save_map = malloc(sizeof(char *) * i);
 	close(fd);
 	return (save_map);
