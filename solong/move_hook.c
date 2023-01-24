@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:35:39 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 17:36:00 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:09:13 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	up_move(int j, int i, t_data *mlx)
 		mlx->map[j - 1][i] = 'P';
 		mlx->map[j][i] = '0';
 		map_gen(mlx);
+		mlx->count++;
+		ft_printf("%d\n", mlx->count);
 	}
 	else if (mlx->map[j - 1][i] && ((mlx->map[j - 1][i] == 'E' \
 	&& exit_ok(mlx))))
@@ -35,6 +37,8 @@ int	down_move(int j, int i, t_data *mlx)
 		mlx->map[j + 1][i] = 'P';
 		mlx->map[j][i] = '0';
 		map_gen(mlx);
+		mlx->count++;
+		ft_printf("%d\n", mlx->count);
 	}
 	else if (mlx->map[j + 1][i] && ((mlx->map[j + 1][i] == 'E' \
 	&& exit_ok(mlx))))
@@ -50,6 +54,8 @@ int	right_move(int j, int i, t_data *mlx)
 		mlx->map[j][i + 1] = 'P';
 		mlx->map[j][i] = '0';
 		map_gen(mlx);
+		mlx->count++;
+		ft_printf("%d\n", mlx->count);
 	}
 	else if (mlx->map[j][i + 1] && ((mlx->map[j][i + 1] == 'E' \
 		&& exit_ok(mlx))))
@@ -65,6 +71,8 @@ int	left_move(int j, int i, t_data *mlx)
 		mlx->map[j][i - 1] = 'P';
 		mlx->map[j][i] = '0';
 		map_gen(mlx);
+		mlx->count++;
+		ft_printf("%d\n", mlx->count);
 	}
 	else if (mlx->map[j][i - 1] && ((mlx->map[j][i - 1] == 'E' \
 	&& exit_ok(mlx))))

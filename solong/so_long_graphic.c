@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:01:08 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 17:42:15 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:53:46 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	setup_mlx(char **map)
 	mlx.mlx = mlx_init();
 	mlx.map = map;
 	get_n_line(&mlx);
-	printf("%d", mlx.line);
+	mlx.count = 0;
 	mlx.img_player = mlx_xpm_file_to_image(mlx.mlx, "img/player.xpm", &i, &i);
 	mlx.img_wall = mlx_xpm_file_to_image(mlx.mlx, "img/wall.xpm", &i, &i);
 	mlx.img_exit = mlx_xpm_file_to_image(mlx.mlx, "img/exit.xpm", &i, &i);

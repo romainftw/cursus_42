@@ -6,12 +6,11 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:16:33 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 17:21:29 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:10:11 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-
 
 int	notify(int keycode, void *param)
 {
@@ -23,10 +22,9 @@ int	notify(int keycode, void *param)
 int	move_player(int keycode, t_data *mlx)
 {
 	(void) mlx;
-	printf("key -> %d\n", keycode);
 	if (keycode == 53)
 		exit(0);
-	else if (keycode == 126)
+	if (keycode == 126)
 		player_pos(mlx, 1);
 	else if (keycode == 125)
 		player_pos(mlx, 2);
@@ -34,7 +32,6 @@ int	move_player(int keycode, t_data *mlx)
 		player_pos(mlx, 3);
 	else if (keycode == 123)
 		player_pos(mlx, 4);
-
 	return (0);
 }
 

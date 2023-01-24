@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 18:31:13 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:52:35 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data {
 	void	*mlx;
 	int		line;
 	void	*mlx_win;
+	int		count;
 	int		i;
 	int		j;
 }				t_data;
