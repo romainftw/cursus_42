@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:04:26 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/23 12:18:57 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:35:10 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	x_map(char **map)
 	}
 	if (change_zero_to_x(map))
 	{
-		if (possible_exit(map))
+		if (possible_exit(map, 'E') && (!check_acces_col(map)))
 			return (1);
 	}
 	return (0);
@@ -107,7 +107,7 @@ int	change_zero_to_x(char **map)
 	return (1);
 }
 
-int	possible_exit(char **map)
+int	possible_exit(char **map, char h)
 {
 	int		i;
 	int		j;
@@ -120,7 +120,7 @@ int	possible_exit(char **map)
 	{
 		while (map[j][++i])
 		{
-			if (map[j][i] == 'E')
+			if (map[j][i] == h)
 			{
 				if ((map[j][i + 1] && map[j][i + 1] == 'x')
 					|| (map[j][i - 1] && map[j][i - 1] == 'x')

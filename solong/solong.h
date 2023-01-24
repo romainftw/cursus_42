@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 17:33:23 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:31:13 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		possible(char **map);
 int		x_map(char **map);
 int		change_zero_to_x(char **map);
 int		print_map(char **map);
-int		possible_exit(char **map);
+int		possible_exit(char **map, char h);
 int		collect_check(char **map);
 int		check_extension(char **arg);
 int		move_player(int keycode, t_data *mlx);
@@ -59,6 +59,7 @@ void	choose_move(t_data *mlx, int j, int i, int move);
 void	setup_mlx(char **map);
 void	map_gen(t_data *mlx);
 int		exit_ok(t_data *mlx);
+int		check_acces_col(char **map);
 
 int		print_map(char **map);
 
