@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:01:08 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 16:26:56 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:42:15 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,4 @@ void	map_gen(t_data *mlx)
 		}
 		mlx->i = -1;
 	}
-	print_map(mlx->map);
 }

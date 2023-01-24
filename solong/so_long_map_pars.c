@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:21:20 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/23 12:06:37 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:50:24 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,11 @@ int	collect_check(char **map)
 		while (map[j][i])
 		{
 			if (map[j][i] == 'C')
-			x = 1;
+				x++;
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (x == 1)
-		return (0);
-	return (1);
+	return (x);
 }
