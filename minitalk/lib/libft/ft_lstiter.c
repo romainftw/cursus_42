@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 15:06:05 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/25 19:59:23 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/14 16:54:53 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/14 17:22:31 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
-# include "lib/ft_printf/ft_printf.h"
-# include "lib/gnl/get_next_line.h"
-# include "lib/libft/libft.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*temp;
 
-#endif
+	temp = lst;
+	if (!f)
+		return ;
+	while (temp)
+	{
+		f(temp->content);
+		temp = temp->next;
+	}
+}

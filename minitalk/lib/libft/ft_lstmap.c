@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/25 20:28:04 by roperrin         ###   ########.fr       */
+/*   Created: 2022/12/14 17:26:02 by roperrin          #+#    #+#             */
+/*   Updated: 2022/12/15 16:45:36 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 
-void	receveid(char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	ft_printf("%s\n", str);
-}
+	t_list	*temp;
+	t_list	*new;
+	t_list	*new_one;
 
-int	main(int arc, char **arg)
-{	
-	int	i;
-
-	i = 1;
-	if (arc == 2)
+	temp = lst;
+	new = NULL;
+	new_one = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
+	while (temp)
 	{
-		ft_printf("client start ta mere\n");
-		while (arg[i])
+		new = ft_lstnew(f(temp->content));
+		if (!new)
 		{
-			receveid(arg[i]);
-			i++;
+			ft_lstclear(&new_one, del);
+			return (NULL);
 		}
+		ft_lstadd_back(&new_one, new);
+		temp = temp->next;
 	}
-	return (0);
+	return (new_one);
 }

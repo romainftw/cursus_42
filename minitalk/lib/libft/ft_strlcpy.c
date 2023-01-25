@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/25 20:28:04 by roperrin         ###   ########.fr       */
+/*   Created: 2022/11/08 10:43:26 by roperrin          #+#    #+#             */
+/*   Updated: 2022/11/15 19:24:17 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "minitalk.h"
-
-void	receveid(char *str)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	ft_printf("%s\n", str);
-}
+	unsigned int	i;
 
-int	main(int arc, char **arg)
-{	
-	int	i;
-
-	i = 1;
-	if (arc == 2)
+	i = 0;
+	if (dstsize > 0)
 	{
-		ft_printf("client start ta mere\n");
-		while (arg[i])
+		while (--dstsize && src[i])
 		{
-			receveid(arg[i]);
+			dst[i] = src[i];
 			i++;
 		}
+		dst[i] = '\0';
 	}
-	return (0);
+	while (src[i])
+		i++;
+	return (i);
 }
