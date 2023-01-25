@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 10:07:15 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 19:13:26 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/25 15:06:05 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/25 15:08:32 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	main(int arc, char **arg)
-{
-	if (arc != 2)
-		return (0);
-	if (open(arg[1], O_RDONLY) < 0)
-	{
-		perror("Error\n");
-		return (0);
-	}
-	if (!check_extension(arg))
-		return (0);
-	if (!pars_first(arg[1]))
-	{
-		ft_printf("Error\nmap composition");
-		return (0);
-	}
-	return (0);
-}
+# include <unistd.h>
+# include <stdio.h>
+# include <signal.h>
+
+#endif
