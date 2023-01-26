@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serveur.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin_char.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/26 23:08:54 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/26 21:15:19 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/26 22:50:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 
-void	convertion(int sign)
+char	*ft_strjoin_char(char *s1, char c)
 {
-	static char	x = 0;
-	static int	i = 0;
+	char	*str;
+	int		len;
+	int		i;
+	int		j;
 
-	if (sign == 30)
-		x = (x << 1 | 1);
-	if (sign == 31)
-		x = (x << 1 & ~0);
+	j = 0;
+	i = 0;
+	if (!s1 || !c)
+		return (0);
+	len = (ft_strlen(s1));
+	str = (char *)malloc(sizeof(char) * (len + 2));
+	if (!str)
+		return (0);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = c;
 	i++;
-	if (i == 8)
-	{
-		ft_printf("%c", x);
-		i = 0;
-		x = 0;
-	}
-}
-
-int	main(void)
-{
-	int	pid_n;
-
-	pid_n = getpid();
-	ft_printf("PID : %d\n", pid_n);
-	signal(SIGUSR1, convertion);
-	signal(SIGUSR2, convertion);
-	while (1)
-	{
-	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

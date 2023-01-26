@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/26 17:33:08 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:12:40 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	receveid(char *str, int pid_n)
 			if (bin == 0)
 				kill(pid_n, SIGUSR2);
 			k--;
-			usleep(5000);
+			usleep(2000);
 		}
 		k = 7;
 		i++;
@@ -43,17 +43,18 @@ int	main(int arc, char **arg)
 	int		i;
 	int		pid_n;
 
-	i = 1;
-	if (arc >= 2)
+	i = 7;
+	if (arc == 3)
 	{
 		ft_printf("client start sa mere\n");
-		pid_n = ft_atoi(arg[i]);
-		i++;
-		while (arg[i])
-		{
-			receveid(arg[i], pid_n);
-			i++;
-		}
+		pid_n = ft_atoi(arg[1]);
+		receveid(arg[2], pid_n);
+		ft_printf("client start sa mere\n");
+		// while (i >= 0)
+		// {
+		// 	kill(pid_n, SIGUSR2);
+		// 	i--;
+		// }
 	}
 	return (0);
 }
