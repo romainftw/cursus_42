@@ -20,15 +20,15 @@ NAME_S = serveur
 .c.o:	gcc ${CFLAGS} -c $< -o $@
 
 $(NAME_C): $(OBJS)
-	make -C lib/libft
-	make -C lib/gnl
-	make -C lib/ft_printf
+	@make -C lib/libft
+	@make -C lib/gnl
+	@make -C lib/ft_printf
 	gcc ${CFLAGS} ${LIB_PATH} ${OBJS} -o ${NAME_C}
 
 $(NAME_S): $(OBJ)
-	make -C lib/libft
-	make -C lib/gnl
-	make -C lib/ft_printf
+	@make -C lib/libft
+	@make -C lib/gnl
+	@make -C lib/ft_printf
 	gcc ${CFLAGS} ${LIB_PATH} ${OBJ} -o ${NAME_S}
 
 all: $(NAME_C) $(NAME_S)
