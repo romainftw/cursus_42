@@ -7,11 +7,11 @@ OBJ = $(SRV:.c=.o)
 
 RM		=	rm -f
 
-LIB		=	libmini_talk.a
+SRC = serveur.c client.c
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-LIB_PATH =  -L./lib/libft -l ft -L./lib/ft_printf -l ftprintf -L./lib/gnl -l gnl -L. -l mini_talk
+LIB_PATH =  lib/ft_printf/libftprintf.a lib/gnl/libgnl.a lib/libft/libft.a
 
 NAME_C = client
 
@@ -23,15 +23,13 @@ $(NAME_C): $(OBJS)
 	make -C lib/libft
 	make -C lib/gnl
 	make -C lib/ft_printf
-	ar crs $(LIB) $(OBJS)
-	gcc ${CFLAGS} ${LIB_PATH} -o ${NAME_C}
+	gcc ${CFLAGS} ${LIB_PATH} ${OBJS} -o ${NAME_C}
 
 $(NAME_S): $(OBJ)
 	make -C lib/libft
 	make -C lib/gnl
 	make -C lib/ft_printf
-	ar crs $(LIB) $(OBJ)
-	gcc ${CFLAGS} ${LIB_PATH} -o ${NAME_S}
+	gcc ${CFLAGS} ${LIB_PATH} ${OBJ} -o ${NAME_S}
 
 all: $(NAME_C) $(NAME_S)
 

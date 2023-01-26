@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/25 19:48:47 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:31:03 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	main(void)
 {
 	printf("vas bien niquer ta mere");
-	//ft_printf("PID : %s", );
+
 	return (0);
 }
