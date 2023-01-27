@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:15:19 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/27 00:03:26 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:48:11 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ char	*ft_strjoin_char(char *s1, char c)
 	int		i;
 
 	i = 0;
-	if (!s1 || !c)
-		return (0);
 	len = (ft_strlen(s1));
 	str = (char *)malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (0);
-	while (s1[i])
+	if (s1)
 	{
-		str[i] = s1[i];
-		i++;
+		while (i < len)
+		{
+			str[i] = s1[i];
+			i++;
+		}
 	}
 	str[i] = c;
 	i++;

@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/27 00:06:39 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:38:15 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	convertion(int sign)
 {
+	static char	*str = "";
 	static char	x = 0;
 	static int	i = 0;
 
@@ -24,8 +25,13 @@ void	convertion(int sign)
 	i++;
 	if (i == 8)
 	{
-		ft_printf("%c", x);
+		str = ft_strjoin_char(str, x);
 		i = 0;
+		if (x == 0)
+		{
+			ft_printf("%s\n", str);
+			free(str);
+		}
 		x = 0;
 	}
 }
