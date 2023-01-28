@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/27 16:38:15 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:51:27 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ void	convertion(int sign)
 	{
 		str = ft_strjoin_char(str, x);
 		i = 0;
-		if (x == 0)
+		if (!x)
 		{
 			ft_printf("%s\n", str);
-			free(str);
+			str = "";
 		}
+		ft_printf("%s\n", str);
 		x = 0;
 	}
 }
@@ -42,10 +43,11 @@ int	main(void)
 
 	pid_n = getpid();
 	ft_printf("PID : %d\n", pid_n);
-	signal(SIGUSR1, convertion);
-	signal(SIGUSR2, convertion);
 	while (1)
 	{
+	signal(SIGUSR1, convertion);
+	signal(SIGUSR2, convertion);
+	pause();
 	}
 	return (0);
 }
