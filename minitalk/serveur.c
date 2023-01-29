@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/29 21:59:10 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/29 22:38:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	convertion(int sign)
 		i = 0;
 		if (!x)
 		{
-			ft_printf("%s\n", str);
+			ft_printf("%s", str);
 			str = "";
 		}
 		x = 0;
