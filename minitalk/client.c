@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/29 19:09:40 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/29 22:01:47 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	receveid(char c, int pid_n)
 		if (bin == 0)
 			kill(pid_n, SIGUSR2);
 		k--;
-		usleep(500);
+		usleep(200);
 	}
 }
 
 int	main(int arc, char **arg)
-{	
+{
 	int		i;
 	int		pid_n;
 	int		k;
@@ -49,12 +49,8 @@ int	main(int arc, char **arg)
 			receveid(arg[2][i], pid_n);
 			i++;
 		}
+		receveid('\n', pid_n);
+		receveid('\0', pid_n);
 	}
-	// while (k >= 0)
-	// {
-	// 	ft_printf("- ");
-	// 	kill(pid_n, SIGUSR2);
-	// 	k--;
-	// }
 	return (0);
 }
