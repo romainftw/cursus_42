@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/02 11:06:04 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:57:48 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	p_function(t_list **slack_a, t_list **slack_b)
 	cache = temp_b->element;
 	ft_lstadd_front(slack_a, lst_new(cache));
 	*slack_b = temp_b->next;
-	free(*slack_b);
 }
 
 void	r_function(t_list **slack)
@@ -57,7 +56,6 @@ void	r_function(t_list **slack)
 	cache = temp->element;
 	ft_lstadd_back(&temp, lst_new(cache));
 	*slack = temp->next;
-	free(*slack);
 }
 
 void	rr_function(t_list **slack)
