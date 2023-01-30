@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/03 19:39:09 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:07:26 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	pars_one(char *tab)
 	while (tab[i])
 	{
 		if (tab[i] < '0' || tab [i] > '9')
-			return (0);
+			exit ("argument invalid");
 		i++;
 	}
 	i = 0;
