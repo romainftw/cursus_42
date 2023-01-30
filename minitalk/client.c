@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/29 22:01:47 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:48:55 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int	main(int arc, char **arg)
 {
 	int		i;
 	int		pid_n;
-	int		k;
 
-	k = 7;
 	i = 0;
 	if (arc == 3)
 	{

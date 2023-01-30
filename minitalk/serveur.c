@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:05:45 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/29 22:38:23 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:23:35 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	convertion(int sign)
 {
-	static char	*str = "";
+	static char	*str = "\0";
 	static char	x = 0;
 	static int	i = 0;
+	char		*temp;
 
 	if (sign == 30)
 		x = (x << 1 | 1);
@@ -25,7 +26,9 @@ void	convertion(int sign)
 	i++;
 	if (i == 8)
 	{
-		str = ft_strjoin_char(str, x);
+		temp = str;
+		str = ft_strjoin_char(temp, x);
+		//free (temp);
 		i = 0;
 		if (!x)
 		{
