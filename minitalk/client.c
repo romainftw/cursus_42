@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:06:59 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/30 12:48:55 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:24:44 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	receveid(char c, int pid_n)
 
 	k = 7;
 	bin = 0;
-
 	while (k >= 0)
 	{
 		bin = (c >> k & 1);
@@ -40,7 +39,7 @@ int	main(int arc, char **arg)
 	i = 0;
 	if (arc == 3)
 	{
-		ft_printf("client start sa mere\n");
+		ft_printf("client start\n");
 		pid_n = ft_atoi(arg[1]);
 		while (arg[2][i])
 		{
