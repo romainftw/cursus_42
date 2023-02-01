@@ -6,25 +6,25 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:11:39 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:48:46 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.>
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*lst_new(int data)
 {
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->content = data;
 	new->next = NULL;
 	return (new);
 }
 
-void	lst_addback(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
@@ -45,7 +45,6 @@ void	lst_addback(t_list **lst, t_list *new)
 		}
 	}
 }
-
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_double_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 16:22:30 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 17:49:02 by roperrin         ###   ########.fr       */
+/*   Created: 2023/02/01 15:57:52 by roperrin          #+#    #+#             */
+/*   Updated: 2023/02/01 15:58:19 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int arc, char **arg)
+void	free_double_d(char **str)
 {
-	parsing(arg, arc);
-	//system("leaks push_swap");
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		free (str[i]);
+		i++;
+	}
+	free (str);
 }

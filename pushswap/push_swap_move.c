@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 15:11:03 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:59:40 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	s_function(t_list **lst)
 	if (!lst)
 		return ;
 	temp = temp->next;
-	cache = temp->element;
-	cache_s = temp_s->element;
-	temp->element = cache_s;
-	temp_s->element = cache;
+	cache = temp->content;
+	cache_s = temp_s->content;
+	temp->content = cache_s;
+	temp_s->content = cache;
 }
 
 void	p_function(t_list **slack_a, t_list **slack_b)
@@ -40,7 +40,7 @@ void	p_function(t_list **slack_a, t_list **slack_b)
 		return ;
 	temp_a = *slack_a;
 	temp_b = *slack_b;
-	cache = temp_b->element;
+	cache = temp_b->content;
 	ft_lstadd_front(slack_a, lst_new(cache));
 	*slack_b = temp_b->next;
 }
@@ -53,7 +53,7 @@ void	r_function(t_list **slack)
 	if (!slack)
 		return ;
 	temp = *slack;
-	cache = temp->element;
+	cache = temp->content;
 	ft_lstadd_back(&temp, lst_new(cache));
 	*slack = temp->next;
 }
