@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:32:13 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:36:41 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	copy_slack(char	**str, int i)
 		ft_lstadd_back(&slack_a, lst_new(nb_a));
 		i++;
 	}
-	// while (slack_a)
-	// {
-	// 	printf("data -> %d\n", slack_a->content);
-	// 	slack_a = slack_a->next;
-	// }
+	 while (slack_a)
+	 {
+	 	printf("data -> %d\n", slack_a->content);
+	 	slack_a = slack_a->next;
+	 }
 }
 
 int	check_order(char **str, int i)
@@ -49,7 +49,6 @@ int	check_order(char **str, int i)
 	{
 		nb_a = ft_atoi(str[i]);
 		nb_b = ft_atoi(str[j]);
-		printf("nba %d ======= nbb %d \n", nb_a, nb_b);
 		if (nb_a > nb_b)
 			return (1);
 	j++;
