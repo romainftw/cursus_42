@@ -6,17 +6,9 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/02 11:21:50 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:06:47 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(char *tab)
-{
-	while (*tab)
-	{
-		lst_new(atoi(tab));
-		tab++;
-	}
-}

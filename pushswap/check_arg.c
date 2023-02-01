@@ -6,53 +6,59 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 12:48:27 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:49:35 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	pars_one(char *tab)
+void	n_quote(char **str, int count)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	i = 0;
-	while (tab[i])
+	i = 1;
+	while (i < count)
 	{
-		if (tab[i] < '0' || tab [i] > '9')
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (tab[i])
-	{
-		while (tab[j])
+		if (str[i][j] == '-')
+			j++;
+		while (str[i][j])
 		{
-			if (tab[i] == tab[j])
-				return (0);
+			if (!ft_isdigit(str[i][j]))
+				ft_exit_fail();
 			j++;
 		}
 		j = 0;
 		i++;
 	}
-	return (1);
-}
-
-int	pars_sec(char *tab)
-{
-	int	i;
-
 	i = 0;
-	printf("-------------------------pars1-------------");
-	if (!pars_one(tab))
-		return (0);
-	while (tab[i])
-	{
-		if (!(tab[i] < tab[i + 1]))
-			return (1);
-		i++;
-	}
-	return (0);
+	j = -1;
 }
+
+// int	check_double(char *str)
+// {
+// 	int	nb_a;
+// 	int	nb_b;
+// 	int	i;
+// 	int	j;
+
+// 	i = 0;
+// 	j = 1;
+// 	nb_a = 0;
+// 	nb_b = 0;
+// 	while (str[i])
+// 	{
+// 		nb_a = ft_atoi(str[i]);
+// 		while (str[j])
+// 		{
+// 			nb_b = ft_atoi(str[j]);
+// 			if (nb_a == nb_b)
+// 				return (0);
+// 			j++;
+// 		}
+// 		j = 0;
+// 		i++;
+// 	}
+// 	return (1);
+// }

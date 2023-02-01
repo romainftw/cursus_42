@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_exit_fail.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 01:25:19 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/10 01:36:25 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/31 15:32:06 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/31 15:42:03 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_exit_fail(void)
 {
-	t_list	*temp;
-	int		i;
-
-	i = 0;
-	temp = lst;
-	while (temp)
-	{
-		temp = temp->next;
-		i++;
-	}
-	return (i);
+	write(2, "ERROR\n", 6);
+	exit(1);
 }

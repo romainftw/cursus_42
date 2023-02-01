@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/03 17:33:31 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:48:32 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "lib/ft_printf/ft_printf.h"
+# include "lib/gnl/get_next_line.h"
+# include "lib/libft/libft.h"
 
 typedef struct s_list
 {
@@ -30,13 +33,8 @@ void	r_function(t_list **slack);
 void	rr_function(t_list **slack);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-char	*ft_strjoin(char *s1, char *s2);
-
-int		pars_one(char *tab);
-int		pars_sec(char *tab);
-int		ft_atoi(const char *str);
-
-size_t	ft_strlen(const char *s);
+void	n_quote(char **str, int count);
+int		check_double(char *str);
 
 t_list	*lst_new(int data);
 t_list	*ft_lstlast(t_list *lst);
