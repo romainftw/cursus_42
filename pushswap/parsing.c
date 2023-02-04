@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 18:15:18 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:23:30 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	n_quote(char **str, int count)
 			j++;
 		while (str[i][j])
 		{
-			if ((!ft_isdigit(str[i][j])) || (!check_double(str)))
+			if ((!ft_isdigit(str[i][j])) || (!check_double(str, 1)))
 				ft_exit_fail();
 			j++;
 		}
@@ -68,7 +68,7 @@ char	**quote(char *str)
 			j++;
 		while (temp[i][j])
 		{
-			if ((!ft_isdigit(temp[i][j])) || (!check_double(temp)))
+			if ((!ft_isdigit(temp[i][j])) || (!check_double(temp, 0)))
 			{
 				free_double_d(temp);
 				ft_exit_fail();
@@ -80,15 +80,13 @@ char	**quote(char *str)
 	return (temp);
 }
 
-int	check_double(char **str)
+int	check_double(char **str, long int j)
 {
 	int			nb_a;
 	int			nb_b;
 	long int	i;
-	long int	j;
 
 	i = 2;
-	j = 1;
 	nb_a = 0;
 	nb_b = 0;
 	while (str[j])

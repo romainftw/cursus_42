@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 19:35:20 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:56:31 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -38,11 +39,11 @@ void	n_quote(char **str, int count);
 void	copy_slack(char	**str, int i);
 int		check_order(char **str, int i);
 
-int		check_double(char **str);
+int		check_double(char **str, long int j);
 
 char	**quote(char *str);
 
-t_list	*lst_new(int data);
+t_list	*lst_new(int data, int i);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_prevlast(t_list *lst);
 

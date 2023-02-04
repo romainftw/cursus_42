@@ -6,13 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 17:48:46 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:56:00 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*lst_new(int data)
+t_list	*lst_new(int data, int i)
 {
 	t_list	*new;
 
@@ -20,6 +20,7 @@ t_list	*lst_new(int data)
 	if (!new)
 		return (NULL);
 	new->content = data;
+	new->index = i;
 	new->next = NULL;
 	return (new);
 }
