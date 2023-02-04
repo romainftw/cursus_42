@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:52:40 by roperrin          #+#    #+#             */
-/*   Updated: 2022/12/14 17:27:25 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:00:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	void			*content;
+	void			*index;
 	struct s_list	*next;
 }					t_list;
 
@@ -66,8 +67,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_exit_fail(void);
+void	free_double_d(char **str);
 
 t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew_index(void *content, int i);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 

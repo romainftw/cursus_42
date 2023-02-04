@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   free_double_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 14:54:03 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:05:47 by roperrin         ###   ########.fr       */
+/*   Created: 2023/02/01 15:56:32 by roperrin          #+#    #+#             */
+/*   Updated: 2023/02/01 15:56:52 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_addback(t_list **lst, t_list *new)
+void	free_double_d(char **str)
 {
-	t_list	*tmp;
+	int	i;
+	int	j;
 
-	tmp = 0;
-	if (!(*lst))
-		*lst = new;
-	else
+	i = 0;
+	j = 0;
+	while (str[i])
 	{
-		tmp = *lst;
-		while (tmp)
-		{
-			if (!tmp->next)
-			{
-				tmp->next = new;
-				break ;
-			}
-			tmp = tmp->next;
-		}
+		free (str[i]);
+		i++;
 	}
+	free (str);
 }

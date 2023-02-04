@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_exit_fail.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 14:54:03 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:05:47 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/31 15:32:06 by roperrin          #+#    #+#             */
+/*   Updated: 2023/01/31 15:42:03 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_addback(t_list **lst, t_list *new)
+void	ft_exit_fail(void)
 {
-	t_list	*tmp;
-
-	tmp = 0;
-	if (!(*lst))
-		*lst = new;
-	else
-	{
-		tmp = *lst;
-		while (tmp)
-		{
-			if (!tmp->next)
-			{
-				tmp->next = new;
-				break ;
-			}
-			tmp = tmp->next;
-		}
-	}
+	write(2, "ERROR\n", 6);
+	exit(1);
 }

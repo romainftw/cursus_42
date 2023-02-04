@@ -6,14 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:09:14 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/24 18:52:35 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:16:59 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
 
-# include "lib/libft/libft.h"
 # include <mlx.h>
 # include <stdio.h>
 # include <sys/types.h>
@@ -21,6 +20,7 @@
 # include <fcntl.h>
 # include "lib/ft_printf/ft_printf.h"
 # include "lib/gnl/get_next_line.h"
+# include "lib/libft/libft.h"
 
 typedef struct s_data {
 	void	*img_wall;

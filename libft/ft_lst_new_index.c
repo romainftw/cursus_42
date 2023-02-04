@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lst_new_index.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 14:54:03 by roperrin          #+#    #+#             */
-/*   Updated: 2023/01/31 18:05:47 by roperrin         ###   ########.fr       */
+/*   Created: 2023/02/04 19:59:05 by roperrin          #+#    #+#             */
+/*   Updated: 2023/02/04 19:59:36 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	lst_addback(t_list **lst, t_list *new)
+t_list	*lst_new_index(int data, int i)
 {
-	t_list	*tmp;
+	t_list	*new;
 
-	tmp = 0;
-	if (!(*lst))
-		*lst = new;
-	else
-	{
-		tmp = *lst;
-		while (tmp)
-		{
-			if (!tmp->next)
-			{
-				tmp->next = new;
-				break ;
-			}
-			tmp = tmp->next;
-		}
-	}
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = data;
+	new->index = i;
+	new->next = NULL;
+	return (new);
 }
