@@ -6,13 +6,25 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/04 19:56:00 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:31:17 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*lst_new(int data, int i)
+t_list	*lst_new(int data)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = data;
+	new->next = NULL;
+	return (new);
+}
+
+t_list	*lst_new_ind(int data, int i)
 {
 	t_list	*new;
 
