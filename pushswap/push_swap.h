@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/05 11:30:46 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:09:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	parsing(char **arg, int arc);
 void	n_quote(char **str, int count);
 void	copy_slack(char	**str, int i);
-int		check_order(char **str, int i);
+void	put_index_order(t_list *slack_a);
 
+int		check_neg_index(t_list *slack_a);
+int		lowest_in_slack(t_list *slack_a);
+int		check_order(char **str, int i);
 int		check_double(char **str, long int j);
 
 char	**quote(char *str);
