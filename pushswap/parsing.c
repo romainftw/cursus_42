@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/09 12:42:32 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:13:36 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	n_quote(char **str, int count)
 		while (str[i][j])
 		{
 			if ((!ft_isdigit(str[i][j])) || (!check_double(str, 1)))
+			{
 				ft_exit_fail();
+				free (str);
+			}
 			j++;
 		}
 		j = 0;
@@ -97,7 +100,10 @@ int	check_double(char **str, long int j)
 		{
 			nb_b = ft_atoi(str[i]);
 			if (nb_a == nb_b)
+			{
 				ft_exit_fail();
+				free (str);
+			}
 			i++;
 		}
 		j++;
