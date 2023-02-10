@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/09 14:56:06 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/10 11:35:18 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,10 @@ void	copy_slack(char	**str, int i)
 		i++;
 		c++;
 	}
+	i -= 1;
 	put_index_order(slack_a);
+	choose_strat(i, slack_a);
 	
-	t_list	*temp;
-	temp = slack_a;
-	 while (temp)
-	{
-	printf("index -> [%d]\n", temp->index);
-		printf("data -> %d\n", temp->content);
-		temp = temp->next;
-	}
-	ft_lstclear_pushswap(&slack_a);
 }
 
 int	check_order(char **str, int i)
@@ -89,4 +82,18 @@ void	put_index_order(t_list *slack_a)
 		}	
 	}
 	free(temp);
+}
+
+void	choose_strat(int i, t_list *slack_a)
+{
+	
+	if (i == 2)
+		s_function(&slack_a);
+	if (i == 3)
+		third_nb(slack_a);
+	if (i > 3 && i < 6)
+	{
+		
+
+	}
 }
