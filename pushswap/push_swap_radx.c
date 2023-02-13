@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:30:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/13 12:11:11 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:19:10 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ void	four_nb(t_list *slack_a, t_list *slack_b)
 	{
 		if (temp->content == nb_min)
 		{
-			pb_function(&slack_b, &temp);
+			pa_function(&slack_b, &temp);
 			break;
 		}
 		temp = temp->next;
 	}
 	third_nb(slack_a);
-	pa_function(&slack_a, &slack_b);
+	pb_function(&slack_a, &slack_b);
 	s_function(&slack_a);
 }
 
