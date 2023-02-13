@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/09 12:44:24 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/13 10:13:00 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	lowest_in_slack(t_list *slack_a)
 			nb_min = temp->content;
 		temp = temp->next;
 	}
-	free (temp);
 	return (nb_min);
 }
 
@@ -84,6 +83,5 @@ int	check_neg_index(t_list *slack_a)
 			return (1);
 		temp = temp->next;
 	}
-	free (temp);
 	return (0);
 }

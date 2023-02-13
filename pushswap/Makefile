@@ -4,7 +4,8 @@ SRCS    =   main.c \
 			parsing.c \
 			push_swap_lst.c \
 			push_swap_lst_sec.c \
-			 push_swap_radx.c
+			push_swap_radx.c \
+			push_swap_move_sec.c
 			
 OBJS = $(SRCS:.c=.o)
 

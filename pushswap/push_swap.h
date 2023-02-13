@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/10 11:33:54 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:06:41 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ typedef struct s_list
 
 void	push_swap(char *tab);
 void	s_function(t_list **lst);
-void	p_function(t_list **slack_a, t_list **slack_b);
+void	pa_function(t_list **slack_a, t_list **slack_b);
+void	pb_function(t_list **slack_b, t_list **slack_a);
 void	r_function(t_list **slack);
-void	rr_function(t_list **slack);
+void	rra_function(t_list **slack);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	parsing(char **arg, int arc);
@@ -41,9 +42,11 @@ void	put_index_order(t_list *slack_a);
 void	ft_lstclear_pushswap(t_list **lst);
 void	choose_strat(int i, t_list *slack_a);
 void	third_nb(t_list *slack_a);
+void	four_nb(t_list *slack_a, t_list *slack_b);
 
 int		check_neg_index(t_list *slack_a);
 int		lowest_in_slack(t_list *slack_a);
+int		high_in_slack_whitout_ind(t_list *slack_a);
 int		check_order(char **str, int i);
 int		check_double(char **str, long int j);
 

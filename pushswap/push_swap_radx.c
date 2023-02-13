@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:30:58 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/10 11:54:36 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:11:11 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	third_nb(t_list *slack_a)
 	temp = slack_a;
 	if (temp->index == 0)
 	{
-		rr_function(&slack_a);
+		rra_function(&slack_a);
 		s_function(&slack_a);
 	}
 	else if (temp->index == 1)
@@ -28,21 +28,50 @@ void	third_nb(t_list *slack_a)
 		if (temp->index == 0)
 			s_function(&slack_a);
 		else
-		{
-			rr_function(&slack_a);
-			rr_function(&slack_a);
-		}
+			rra_function(&slack_a);
 	}
 	else if (temp->index == 2)
 	{
 		temp = temp->next;
 		if (temp->index == 0)
 			r_function(&slack_a);
-		else
+		else if(temp->index == 1)
 		{
-			rr_function(&slack_a);
-			rr_function(&slack_a);
+			s_function(&slack_a);
+			r_function(&slack_a);
+			r_function(&slack_a);
 		}
+	}
+	
+		t_list *temp_a;
+	temp_a = slack_a;
+	while (temp_a)
+	{
+		printf("------[%d]\n", temp_a->index);
+		printf("%d\n", temp_a->content);
+		temp_a = temp_a->next;
 	}
 	ft_lstclear_pushswap(&slack_a);
 }
+
+void	four_nb(t_list *slack_a, t_list *slack_b)
+{
+	int		nb_min;
+	t_list	*temp;
+	
+	temp = slack_a;
+	nb_min = high_in_slack_whitout_ind(slack_a);
+	while (temp)
+	{
+		if (temp->content == nb_min)
+		{
+			pb_function(&slack_b, &temp);
+			break;
+		}
+		temp = temp->next;
+	}
+	third_nb(slack_a);
+	pa_function(&slack_a, &slack_b);
+	s_function(&slack_a);
+}
+
