@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/13 11:49:56 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:15:58 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	copy_slack(char	**str, int i)
 	i -= 1;
 	put_index_order(slack_a);
 	choose_strat(i, slack_a);
-	
 }
 
 int	check_order(char **str, int i)
