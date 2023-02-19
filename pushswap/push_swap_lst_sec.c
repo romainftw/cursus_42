@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:56:19 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/13 12:06:06 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:09:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	high_in_slack_whitout_ind(t_list *slack_a)
 	t_list	*temp;
 	int		nb_min;
 
-	nb_min = - 2147483647;
+	nb_min = -2147483647;
 	temp = slack_a;
 	while (temp)
 	{
@@ -43,4 +43,39 @@ int	high_in_slack_whitout_ind(t_list *slack_a)
 		temp = temp->next;
 	}
 	return (nb_min);
+}
+
+t_list	*lst_new_neg(int data)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = data;
+	new->index = -1;
+	new->next = NULL;
+	return (new);
+}
+
+int	check_order_in_lst(t_list *lst)
+{
+	t_list	*nb_a;
+	t_list	*nb_b;
+	int		val_a;
+	int		val_b;
+
+	nb_a = lst;
+	nb_b = lst->next;
+
+	while (nb_b)
+	{
+		val_a = nb_a->index;
+		val_b = nb_b->index;
+		if (val_a > val_b)
+			return (1);
+		nb_b = nb_b->next;
+		nb_a = nb_a->next;
+	}
+	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/13 10:13:00 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:02:06 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*lst_new(int data)
+t_list	*lst_new(int data, int index)
 {
 	t_list	*new;
 
@@ -20,7 +20,7 @@ t_list	*lst_new(int data)
 	if (!new)
 		return (NULL);
 	new->content = data;
-	new->index = -1;
+	new->index = index;
 	new->next = NULL;
 	return (new);
 }
@@ -49,7 +49,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst && new)
+	if (!(*lst))
+		*lst = new;
+	else if (lst && new)
 	{
 		new->next = *lst;
 		*lst = new;
