@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 18:52:59 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:22:53 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	five_nb(t_stack **ctx)
 	while (temp_a)
 	{
 		printf("------[%d]\n", temp_a->index);
+		printf("--[%d]\n", temp_a->place);
 		printf("%d\n", temp_a->content);
 		temp_a = temp_a->next;
 	}

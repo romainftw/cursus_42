@@ -6,19 +6,21 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 19:07:45 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:24:45 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	copy_slack(char	**str, int i, t_stack *ctx)
+void	copy_slack(char	**str, t_stack *ctx)
 {
 	int		nb_a;
 	int		c;
+	int		i;
 
 	c = 0;
 	nb_a = 0;
+	i = ctx->quote;
 	if (!check_order(str, i))
 		ft_exit_succes();
 	while (str[i])
@@ -28,8 +30,8 @@ void	copy_slack(char	**str, int i, t_stack *ctx)
 		i++;
 		c++;
 	}
-	i -= 1;
 	put_index_order(&ctx->a);
+	lst_place(&ctx->a);
 	choose_strat(i, ctx);
 }
 
@@ -78,6 +80,8 @@ void	put_index_order(t_list **ctx)
 
 void	choose_strat(int i, t_stack *ctx)
 {
+	if (ctx->quote == 1)
+		i -= 1;
 	if (i == 2)
 		sa_function(&ctx);
 	if (i == 3)

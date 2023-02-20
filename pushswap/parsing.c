@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 19:11:49 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:19:48 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ void	parsing(char **arg, int arc, t_stack *ctx)
 	if (arc == 2)
 	{
 		temp = quote(arg[1]);
-		copy_slack(temp, 0, ctx);
+		ctx->quote = 0;
+		copy_slack(temp, ctx);
 		free_double_d(temp);
 	}
 	else
 	{
 		n_quote(arg, arc);
-		copy_slack(arg, 1, ctx);
+		ctx->quote = 1;
+		copy_slack(arg, ctx);
 	}
 }
 
@@ -69,7 +71,7 @@ char	**quote(char *str)
 	temp = ft_split(str, ' ');
 	while (temp[++i])
 	{
-		if (temp[i][j] == '-' || temp[i][j] == '+')
+		if (temp[i][j] == '-' && ft_isdigit(temp[i][j + 1]))
 			j++;
 		while (temp[i][j])
 		{

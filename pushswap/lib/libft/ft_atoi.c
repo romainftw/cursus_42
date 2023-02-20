@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 00:31:28 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/11 15:51:45 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:20:51 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	int	neg;
-	int	i;
+	int		neg;
+	int		i;
 	int	num;
 
 	i = 0;
@@ -34,5 +35,7 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
+	// if (num >= 2147483647 || num <= (-2147483648))
+	// 	ft_exit_fail();
 	return (num * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 16:05:46 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:03:26 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
-//	int				place;
+	int				place;
 	struct s_list	*next;
 }	t_list;
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 {
 	t_list	*a;
 	t_list	*b;
+	int		quote;
 }	t_stack;
 
 void	push_swap(char *tab);
@@ -44,8 +45,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	parsing(char **arg, int arc, t_stack *ctx);
 void	n_quote(char **str, int count);
-void	copy_slack(char	**str, int i, t_stack *ctx);
+void	copy_slack(char	**str, t_stack *ctx);
 void	put_index_order(t_list **ctx);
+void	lst_place(t_list **ctx);
 void	ft_lstclear_pushswap(t_list **lst);
 void	choose_strat(int i, t_stack *slack_a);
 void	third_nb(t_stack **ctx);
