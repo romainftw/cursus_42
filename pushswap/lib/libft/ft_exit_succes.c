@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_move_sec.c                               :+:      :+:    :+:   */
+/*   ft_exit_succes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 11:52:57 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:30 by roperrin         ###   ########.fr       */
+/*   Created: 2023/01/31 15:32:06 by roperrin          #+#    #+#             */
+/*   Updated: 2023/02/20 19:05:25 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pb_function(t_stack **ctx)
+void	ft_exit_succes(void)
 {
-	t_list	*temp_a;
-
-	if ((*ctx)->a == NULL)
-		return ;
-	temp_a = (*ctx)->a;
-	(*ctx)->a = (*ctx)->a->next;
-	temp_a->next = (*ctx)->b;
-	(*ctx)->b = temp_a;
-	ft_printf("pb\n");
+	exit(1);
 }

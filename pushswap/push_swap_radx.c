@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 16:12:00 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:52:59 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,17 @@ void	four_nb(t_stack **ctx)
 	pb_function(ctx);
 	if (check_order_in_lst((*ctx)->a))
 		third_nb(ctx);
-		temp_a = (*ctx)->b;
-	printf("------------B5---------------\n");
-	while (temp_a)
-	{
-		printf("------[%d]\n", temp_a->index);
-		printf("%d\n", temp_a->content);
-		temp_a = temp_a->next;
-	}
-	printf("------------B5---------------\n");
 	pa_function(ctx);
 	ra_function(ctx);
 	temp_a = (*ctx)->a;
-	printf("------------A4---------------\n");
-	while (temp_a)
-	{
-		printf("------[%d]\n", temp_a->index);
-		printf("%d\n", temp_a->content);
-		temp_a = temp_a->next;
-	}
-	printf("------------A4---------------\n");
+	// printf("------------A4---------------\n");
+	// while (temp_a)
+	// {
+	// 	printf("------[%d]\n", temp_a->index);
+	// 	printf("%d\n", temp_a->content);
+	// 	temp_a = temp_a->next;
+	// }
+	// printf("------------A4---------------\n");
 }
 
 void	five_nb(t_stack **ctx)
@@ -87,20 +78,7 @@ void	five_nb(t_stack **ctx)
 	pb_function(ctx);
 		max = high_in_slack_whitout_ind((*ctx)->a);
 	four_nb(ctx);
-	temp_a = (*ctx)->b;
-	printf("------------B5---------------\n");
-	while (temp_a)
-	{
-		printf("------[%d]\n", temp_a->index);
-		printf("%d\n", temp_a->content);
-		temp_a = temp_a->next;
-	}
-	printf("------------B5---------------\n");
 	pa_function(ctx);
-	pa_function(ctx);
-	printf("------------ici---------------\n");
-	sa_function(ctx);
-	ra_function(ctx);
 	ra_function(ctx);
 	temp_a = (*ctx)->a;
 	printf("------------A5---------------\n");

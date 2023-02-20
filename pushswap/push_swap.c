@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 16:06:54 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:07:45 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	copy_slack(char	**str, int i, t_stack *ctx)
 	c = 0;
 	nb_a = 0;
 	if (!check_order(str, i))
-		ft_exit_fail();
+		ft_exit_succes();
 	while (str[i])
 	{
 		nb_a = ft_atoi(str[i]);
