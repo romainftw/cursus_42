@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:52:57 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/19 12:53:32 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:02:48 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	pb_function(t_list **slack_a, t_list **slack_b)
 	t_list	*temp_a;
 
 	if (!slack_a || !slack_b)
+	{
+		printf("----------ici");
 		return ;
+	}
 	temp_a = *slack_a;
 	*slack_a = (*slack_a)->next;
 	temp_a->next = *slack_b;

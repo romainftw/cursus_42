@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/19 17:59:25 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:01:02 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	s_function(t_list **lst)
 	ft_printf("sa\n");
 }
 
-void	pa_function(t_list **slack_a, t_list **slack_b)
+void	pa_function(t_list **slack_a, t_list **slack_b) // (t_stack *stack)
 {
 	t_list	*temp_b;
 
@@ -46,11 +46,8 @@ void	r_function(t_list **slack)
 	if (!slack)
 		return ;
 	last = ft_prevlast(*slack);
-	printf("%d ------ last\n", last->content);
 	last->next = *slack;
 	temp = (*slack)->next;
-	//last = ft_prevlast(temp);
-	printf("%d ------ last\n", last->content);
 	last->next->next = NULL;
 	*slack = temp;
 	ft_printf("ra\n");

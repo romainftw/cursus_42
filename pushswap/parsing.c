@@ -6,20 +6,20 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/09 14:13:36 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:27:11 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parsing(char **arg, int arc)
+void	parsing(char **arg, int arc, t_sltack *ctx)
 {
 	char	**temp;
 
 	if (arc == 2)
 	{
 		temp = quote(arg[1]);
-		copy_slack(temp, 0);
+		copy_slack(temp, 0, ctx);
 		free_double_d(temp);
 	}
 	else
@@ -67,7 +67,7 @@ char	**quote(char *str)
 	temp = ft_split(str, ' ');
 	while (temp[++i])
 	{
-		if (temp[i][j] == '-')
+		if (temp[i][j] == '-' || temp[i][j] == '+')
 			j++;
 		while (temp[i][j])
 		{
