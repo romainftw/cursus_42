@@ -6,33 +6,31 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 13:27:03 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:48:08 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	copy_slack(char	**str, int i, t_slack ctx)
+void	copy_slack(char	**str, int i, t_stack *ctx)
 {
 	int		nb_a;
-	t_list	*slack_a;
 	int		c;
 
 	c = 0;
-	slack_a = 0;
 	nb_a = 0;
 	if (!check_order(str, i))
 		ft_exit_fail();
 	while (str[i])
 	{
 		nb_a = ft_atoi(str[i]);
-		ft_lstadd_back(&slack_a, lst_new_neg(nb_a));
+		ft_lstadd_back(&ctx->a, lst_new_neg(nb_a));
 		i++;
 		c++;
 	}
 	i -= 1;
-	put_index_order(slack_a);
-	choose_strat(i, &slack_a);
+	put_index_order(&ctx->a);
+	choose_strat(i, ctx);
 }
 
 int	check_order(char **str, int i)
@@ -54,7 +52,7 @@ int	check_order(char **str, int i)
 	return (0);
 }
 
-void	put_index_order(t_list *slack_a)
+void	put_index_order(t_list **ctx)
 {
 	t_list	*temp;
 	int		nb;
@@ -62,10 +60,10 @@ void	put_index_order(t_list *slack_a)
 
 	i = 0;
 	nb = 0;
-	while (check_neg_index(slack_a))
+	while (check_neg_index(ctx))
 	{
-		nb = lowest_in_slack(slack_a);
-		temp = slack_a;
+		nb = lowest_in_slack(ctx);
+		temp = *ctx;
 		while (temp)
 		{
 			if (temp->content == nb)
@@ -78,17 +76,14 @@ void	put_index_order(t_list *slack_a)
 	}
 }
 
-void	choose_strat(int i, t_list **slack_a)
+void	choose_strat(int i, t_stack *ctx)
 {
-	t_list	**slack_b;
-
-	slack_b = NULL;
 	if (i == 2)
-		s_function(slack_a);
-	if (i == 3)
-		third_nb(slack_a);
-	if (i == 4)
-		four_nb(slack_a, slack_b);
-	if (i == 5)
-		five_nb(slack_a, slack_b);
+		s_function(&ctx->a);
+	// if (i == 3)
+	// 	third_nb(&ctx);
+	// if (i == 4)
+	// 	four_nb(&ctx);
+	// if (i == 5)
+	// 	five_nb(&ctx);
 }

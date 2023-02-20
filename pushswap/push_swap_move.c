@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 12:01:02 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:53:10 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ void	s_function(t_list **lst)
 	(*lst)->next = (*lst)->next->next;
 	bufn->next = *lst;
 	*lst = bufn;
+	
+	while (lst)
+	{
+		printf("%d----------\n", (*lst)->content);
+		printf("[%d]----------\n", (*lst)->index);
+		lst = &(*lst)->next;
+	}
+	
 	ft_printf("sa\n");
 }
 

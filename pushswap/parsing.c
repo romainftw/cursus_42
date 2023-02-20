@@ -6,13 +6,13 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 13:27:11 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:33:39 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parsing(char **arg, int arc, t_sltack *ctx)
+void	parsing(char **arg, int arc, t_stack *ctx)
 {
 	char	**temp;
 
@@ -25,7 +25,7 @@ void	parsing(char **arg, int arc, t_sltack *ctx)
 	else
 	{
 		n_quote(arg, arc);
-		copy_slack(arg, 1);
+		copy_slack(arg, 1, ctx);
 	}
 }
 

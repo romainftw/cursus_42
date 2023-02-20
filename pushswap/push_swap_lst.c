@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:53:50 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/14 16:02:06 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:50:22 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
-int	lowest_in_slack(t_list *slack_a)
+int	lowest_in_slack(t_list **slack_a)
 {
 	t_list	*temp;
 	int		nb_min;
 
 	nb_min = 2147483647;
-	temp = slack_a;
+	temp = *slack_a;
 	while (temp)
 	{
 		if (temp->content < nb_min && temp->index == -1)
@@ -74,11 +74,11 @@ int	lowest_in_slack(t_list *slack_a)
 	return (nb_min);
 }
 
-int	check_neg_index(t_list *slack_a)
+int	check_neg_index(t_list **slack_a)
 {
 	t_list	*temp;
 
-	temp = slack_a;
+	temp = *slack_a;
 	while (temp)
 	{
 		if (temp->index == -1)

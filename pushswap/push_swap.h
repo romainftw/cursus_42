@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 13:24:01 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:44:38 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@
 # include "lib/gnl/get_next_line.h"
 # include "lib/libft/libft.h"
 
-
-typedef struct s_stack
-{
-	t_list	*a;
-	t_list	*b;
-}	t_stack;
-
 typedef struct s_list
 {
 	int				content;
@@ -34,6 +27,12 @@ typedef struct s_list
 //	int				place;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_stack
+{
+	t_list	*a;
+	t_list	*b;
+}	t_stack;
 
 void	push_swap(char *tab);
 void	s_function(t_list **lst);
@@ -43,18 +42,18 @@ void	r_function(t_list **slack);
 void	rra_function(t_list **slack);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	parsing(char **arg, int arc, t_slack *ctx);
+void	parsing(char **arg, int arc, t_stack *ctx);
 void	n_quote(char **str, int count);
-void	copy_slack(char	**str, int i);
-void	put_index_order(t_list *slack_a);
+void	copy_slack(char	**str, int i, t_stack *ctx);
+void	put_index_order(t_list **ctx);
 void	ft_lstclear_pushswap(t_list **lst);
-void	choose_strat(int i, t_list **slack_a);
+void	choose_strat(int i, t_stack *slack_a);
 void	third_nb(t_list **slack_a);
 void	four_nb(t_list **slack_a, t_list **slack_b);
 void	five_nb(t_list **slack_a, t_list **slack_b);
 
-int		check_neg_index(t_list *slack_a);
-int		lowest_in_slack(t_list *slack_a);
+int		check_neg_index(t_list **slack_a);
+int		lowest_in_slack(t_list **slack_a);
 int		high_in_slack_whitout_ind(t_list *slack_a);
 int		check_order(char **str, int i);
 int		check_double(char **str, long int j);
