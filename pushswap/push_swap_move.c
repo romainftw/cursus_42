@@ -6,86 +6,76 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 14:53:10 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:05:52 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	s_function(t_list **lst)
+void	sa_function(t_stack **lst)
 {
 	t_list	*bufn;
 
-	bufn = (*lst)->next;
-	if (!lst)
-		return ;
-	(*lst)->next = (*lst)->next->next;
-	bufn->next = *lst;
-	*lst = bufn;
-	
-	while (lst)
-	{
-		printf("%d----------\n", (*lst)->content);
-		printf("[%d]----------\n", (*lst)->index);
-		lst = &(*lst)->next;
-	}
-	
+	bufn = (*lst)->a->next;
+	(*lst)->a->next = (*lst)->a->next->next;
+	bufn->next = (*lst)->a;
+	(*lst)->a = bufn;
+	// while (lst)
+	// {
+	// 	printf("%d----------\n", (*lst)->a->content);
+	// 	printf("[%d]----------\n", (*lst)->a->index);
+	// 	(*lst)->a = (*lst)->a->next;
+	// }
 	ft_printf("sa\n");
 }
 
-void	pa_function(t_list **slack_a, t_list **slack_b) // (t_stack *stack)
+void	pa_function(t_stack **ctx)
 {
 	t_list	*temp_b;
 
-	if (!slack_a || !slack_b)
-		return ;
-	temp_b = *slack_b;
-	*slack_b = (*slack_b)->next;
-	temp_b->next = *slack_a;
-	*slack_a = temp_b;
+	temp_b = (*ctx)->b;
+	(*ctx)->b = (*ctx)->b->next;
+	temp_b->next = (*ctx)->a;
+	(*ctx)->a = temp_b;
 	ft_printf("pa\n");
 }
 
-void	r_function(t_list **slack)
+void	ra_function(t_stack **ctx)
 {
 	t_list	*last;
 	t_list	*temp;
 
-	if (!slack)
-		return ;
-	last = ft_prevlast(*slack);
-	last->next = *slack;
-	temp = (*slack)->next;
+	last = ft_prevlast((*ctx)->a);
+	last->next = (*ctx)->a;
+	temp = (*ctx)->a->next;
 	last->next->next = NULL;
-	*slack = temp;
+	(*ctx)->a = temp;
 	ft_printf("ra\n");
 }
 
-void	rra_function(t_list **slack)
+void	rra_function(t_stack **ctx)
 {
 	t_list				*temp_a;
 	t_list				*last;
 
-	if (!slack)
-		return ;
-	temp_a = *slack;
-	last = *slack;
+	temp_a = (*ctx)->a;
+	last = (*ctx)->a;
 	last = ft_prevlast(last);
 	last->next = temp_a;
 	temp_a->next->next = NULL;
-	*slack = last;
+	(*ctx)->a = last;
 	ft_printf("rra\n");
 }
 
-t_list	*ft_prevlast(t_list *slack)
+t_list	*ft_prevlast(t_list *lst)
 {
-	if (!slack)
+	if (!lst)
 		return (NULL);
-	while (slack->next->next)
+	while (lst->next->next)
 	{
-		slack = slack->next;
+		lst = lst->next;
 	}
-	if (slack->next)
-		slack = slack->next;
-	return (slack);
+	if (lst->next)
+		lst = lst->next;
+	return (lst);
 }

@@ -6,56 +6,64 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 11:48:37 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:12:00 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	third_nb(t_list **slack_a)
+void	third_nb(t_stack **ctx)
 {
 	int		val_one;
 	int		val_two;
 	int		val_three;
 
-	val_one = (*slack_a)->index;
-	val_two = (*slack_a)->next->index;
-	val_three = (*slack_a)->next->next->index;
+	val_one = (*ctx)->a->index;
+	val_two = (*ctx)->a->next->index;
+	val_three = (*ctx)->a->next->next->index;
 	if (val_one < val_two && val_two > val_three \
 	&& val_one < val_three)
 	{
-		rra_function(slack_a);
-		s_function(slack_a);
+		rra_function(ctx);
+		sa_function(ctx);
 	}
 	else if (val_one > val_two && val_two < val_three \
 	&& val_one < val_three)
-		s_function(slack_a);
+		sa_function(ctx);
 	else if (val_one < val_two && val_two > val_three)
-		rra_function(slack_a);
+		rra_function(ctx);
 	else if (val_one > val_two && val_two < val_three)
-		r_function(slack_a);
+		ra_function(ctx);
 	else if (val_one > val_two && val_two > val_three)
 	{
-		r_function(slack_a);
-		s_function(slack_a);
+		ra_function(ctx);
+		sa_function(ctx);
 	}
-	printf("------------3---------------\n");
 }
 
-void	four_nb(t_list **slack_a, t_list **slack_b)
+void	four_nb(t_stack **ctx)
 {
 	int		max;
 	t_list	*temp_a;
 
-	max = high_in_slack_whitout_ind((*slack_a));
-	while ((*slack_a)->content != max)
-		r_function(slack_a);
-	pb_function(slack_a, slack_b);
-	if (check_order_in_lst((*slack_a)))
-		third_nb(slack_a);
-	pa_function(slack_a, slack_b);
-	r_function(slack_a);
-	temp_a = *slack_a;
+	max = high_in_slack_whitout_ind((*ctx)->a);
+	while ((*ctx)->a->content != max)
+		ra_function(ctx);
+	pb_function(ctx);
+	if (check_order_in_lst((*ctx)->a))
+		third_nb(ctx);
+		temp_a = (*ctx)->b;
+	printf("------------B5---------------\n");
+	while (temp_a)
+	{
+		printf("------[%d]\n", temp_a->index);
+		printf("%d\n", temp_a->content);
+		temp_a = temp_a->next;
+	}
+	printf("------------B5---------------\n");
+	pa_function(ctx);
+	ra_function(ctx);
+	temp_a = (*ctx)->a;
 	printf("------------A4---------------\n");
 	while (temp_a)
 	{
@@ -66,25 +74,35 @@ void	four_nb(t_list **slack_a, t_list **slack_b)
 	printf("------------A4---------------\n");
 }
 
-void	five_nb(t_list **slack_a, t_list **slack_b)
+void	five_nb(t_stack **ctx)
 {
 	t_list	*temp_a;
 	int		max;
 	int		i;
 
 	i = 0;
-	max = high_in_slack_whitout_ind((*slack_a));
-	while ((*slack_a)->content != max)
-		r_function(slack_a);
-	pb_function(slack_a, slack_b);
-		max = high_in_slack_whitout_ind((*slack_a));
-	four_nb(slack_a, slack_b);
-	pa_function(slack_a, slack_b);
-	pa_function(slack_a, slack_b);
-	s_function(slack_a);
-	r_function(slack_a);
-	r_function(slack_a);
-	temp_a = *slack_a;
+	max = high_in_slack_whitout_ind((*ctx)->a);
+	while ((*ctx)->a->content != max)
+		ra_function(ctx);
+	pb_function(ctx);
+		max = high_in_slack_whitout_ind((*ctx)->a);
+	four_nb(ctx);
+	temp_a = (*ctx)->b;
+	printf("------------B5---------------\n");
+	while (temp_a)
+	{
+		printf("------[%d]\n", temp_a->index);
+		printf("%d\n", temp_a->content);
+		temp_a = temp_a->next;
+	}
+	printf("------------B5---------------\n");
+	pa_function(ctx);
+	pa_function(ctx);
+	printf("------------ici---------------\n");
+	sa_function(ctx);
+	ra_function(ctx);
+	ra_function(ctx);
+	temp_a = (*ctx)->a;
 	printf("------------A5---------------\n");
 	while (temp_a)
 	{

@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 14:44:38 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:05:46 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ typedef struct s_stack
 }	t_stack;
 
 void	push_swap(char *tab);
-void	s_function(t_list **lst);
-void	pa_function(t_list **slack_a, t_list **slack_b);
-void	pb_function(t_list **slack_a, t_list **slack_b);
-void	r_function(t_list **slack);
-void	rra_function(t_list **slack);
+void	sa_function(t_stack **lst);
+void	pa_function(t_stack **ctx);
+void	pb_function(t_stack **ctx);
+void	ra_function(t_stack **ctx);
+void	rra_function(t_stack **ctx);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	parsing(char **arg, int arc, t_stack *ctx);
@@ -48,9 +48,9 @@ void	copy_slack(char	**str, int i, t_stack *ctx);
 void	put_index_order(t_list **ctx);
 void	ft_lstclear_pushswap(t_list **lst);
 void	choose_strat(int i, t_stack *slack_a);
-void	third_nb(t_list **slack_a);
-void	four_nb(t_list **slack_a, t_list **slack_b);
-void	five_nb(t_list **slack_a, t_list **slack_b);
+void	third_nb(t_stack **ctx);
+void	four_nb(t_stack **ctx);
+void	five_nb(t_stack **ctx);
 
 int		check_neg_index(t_list **slack_a);
 int		lowest_in_slack(t_list **slack_a);

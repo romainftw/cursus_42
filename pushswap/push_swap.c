@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 14:48:08 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:06:54 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	put_index_order(t_list **ctx)
 void	choose_strat(int i, t_stack *ctx)
 {
 	if (i == 2)
-		s_function(&ctx->a);
-	// if (i == 3)
-	// 	third_nb(&ctx);
-	// if (i == 4)
-	// 	four_nb(&ctx);
-	// if (i == 5)
-	// 	five_nb(&ctx);
+		sa_function(&ctx);
+	if (i == 3)
+		third_nb(&ctx);
+	if (i == 4)
+		four_nb(&ctx);
+	if (i == 5)
+		five_nb(&ctx);
 }
