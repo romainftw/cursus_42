@@ -1,5 +1,5 @@
 SRCS    =   main.c \
-			push_swap.c \
+			parsing_second.c \
 			push_swap_move.c \
 			parsing.c \
 			push_swap_lst.c \

@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 00:31:28 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 10:35:43 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:19:28 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ long	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	// if (num >= 2147483647 || num <= (-2147483648))
-	// 	ft_exit_fail();
 	return (num * neg);
 }

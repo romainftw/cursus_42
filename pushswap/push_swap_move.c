@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:13:24 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 19:34:28 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:16:06 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	sa_function(t_stack **ctx)
 {
 	t_list	*bufn;
+
 	if ((*ctx)->a == NULL)
 		return ;
 	bufn = (*ctx)->a->next;
