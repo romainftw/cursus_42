@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:03:26 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:13:28 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	four_nb(t_stack **ctx);
 void	five_nb(t_stack **ctx);
 
 int		check_neg_index(t_list **slack_a);
-int		lowest_in_slack(t_list **slack_a);
+int		lowest_in_slack(t_list *slack_a);
+int		lowest_in_slack_no_ind(t_list *slack_a);
 int		high_in_slack_whitout_ind(t_list *slack_a);
 int		check_order(char **str, int i);
 int		check_double(char **str, long int j);

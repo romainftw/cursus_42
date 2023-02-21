@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:52:57 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:30 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:14:28 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,20 @@ void	pb_function(t_stack **ctx)
 	temp_a->next = (*ctx)->b;
 	(*ctx)->b = temp_a;
 	ft_printf("pb\n");
+}
+
+int	lowest_in_slack_no_ind(t_list *slack_a)
+{
+	t_list	*temp;
+	int		nb_min;
+
+	nb_min = 2147483647;
+	temp = slack_a;
+	while (temp)
+	{
+		if (temp->content < nb_min)
+			nb_min = temp->content;
+		temp = temp->next;
+	}
+	return (nb_min);
 }

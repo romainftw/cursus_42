@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:22:53 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:15:45 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,17 @@ void	third_nb(t_stack **ctx)
 
 void	four_nb(t_stack **ctx)
 {
-	int		max;
-	t_list	*temp_a;
+	int		low;
+	// t_list	*temp_a;
 
-	max = high_in_slack_whitout_ind((*ctx)->a);
-	while ((*ctx)->a->content != max)
+	low = lowest_in_slack_no_ind((*ctx)->a);
+	while ((*ctx)->a->content != low)
 		ra_function(ctx);
 	pb_function(ctx);
 	if (check_order_in_lst((*ctx)->a))
 		third_nb(ctx);
 	pa_function(ctx);
-	ra_function(ctx);
-	temp_a = (*ctx)->a;
+	// temp_a = (*ctx)->a;
 	// printf("------------A4---------------\n");
 	// while (temp_a)
 	// {
@@ -67,27 +66,25 @@ void	four_nb(t_stack **ctx)
 
 void	five_nb(t_stack **ctx)
 {
-	t_list	*temp_a;
-	int		max;
+	// t_list	*temp_a;
+	int		low;
 	int		i;
 
 	i = 0;
-	max = high_in_slack_whitout_ind((*ctx)->a);
-	while ((*ctx)->a->content != max)
+	low = lowest_in_slack_no_ind((*ctx)->a);
+	while ((*ctx)->a->content != low)
 		ra_function(ctx);
 	pb_function(ctx);
-		max = high_in_slack_whitout_ind((*ctx)->a);
 	four_nb(ctx);
 	pa_function(ctx);
-	ra_function(ctx);
-	temp_a = (*ctx)->a;
-	printf("------------A5---------------\n");
-	while (temp_a)
-	{
-		printf("------[%d]\n", temp_a->index);
-		printf("--[%d]\n", temp_a->place);
-		printf("%d\n", temp_a->content);
-		temp_a = temp_a->next;
-	}
-	printf("------------A5---------------\n");
+	// temp_a = (*ctx)->a;
+	// printf("------------A5---------------\n");
+	// while (temp_a)
+	// {
+	// 	printf("------[%d]\n", temp_a->index);
+	// 	printf("--[%d]\n", temp_a->place);
+	// 	printf("%d\n", temp_a->content);
+	// 	temp_a = temp_a->next;
+	// }
+	// printf("------------A5---------------\n");
 }

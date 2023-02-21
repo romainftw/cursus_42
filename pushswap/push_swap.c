@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:24:45 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:19:31 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	copy_slack(char	**str, t_stack *ctx)
 	while (str[i])
 	{
 		nb_a = ft_atoi(str[i]);
-		ft_lstadd_back(&ctx->a, lst_new_neg(nb_a));
+		if (nb_a > 2147483647 || nb_a < (-2147483648))
+			ft_exit_fail();
+		ft_lstadd_back(&ctx->a, lst_new_neg((int)nb_a));
 		i++;
 		c++;
 	}
@@ -64,7 +66,7 @@ void	put_index_order(t_list **ctx)
 	nb = 0;
 	while (check_neg_index(ctx))
 	{
-		nb = lowest_in_slack(ctx);
+		nb = lowest_in_slack((*ctx));
 		temp = *ctx;
 		while (temp)
 		{

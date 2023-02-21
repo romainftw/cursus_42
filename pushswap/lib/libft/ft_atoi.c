@@ -6,17 +6,17 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 00:31:28 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:20:51 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:35:43 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		neg;
 	int		i;
-	int	num;
+	long	num;
 
 	i = 0;
 	neg = 1;

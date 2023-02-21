@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:56:19 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:09:24 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:14:16 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	check_order_in_lst(t_list *lst)
 
 	nb_a = lst;
 	nb_b = lst->next;
-
 	while (nb_b)
 	{
 		val_a = nb_a->index;
