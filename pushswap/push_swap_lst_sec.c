@@ -6,28 +6,28 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:56:19 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 17:59:10 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:07:42 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear_pushswap(t_list **lst)
-{
-	t_list	*temp;
-	t_list	*temp_next;
+// void	ft_lstclear_pushswap(t_list **lst)
+// {
+// 	t_list	*temp;
+// 	t_list	*temp_next;
 
-	temp = *lst;
-	temp_next = *lst;
-	while (temp)
-	{
-		temp_next = temp_next->next;
-		free(temp);
-		temp = temp_next;
-	}
-	*lst = NULL;
-	free(temp);
-}
+// 	temp = *lst;
+// 	temp_next = *lst;
+// 	while (temp)
+// 	{
+// 		temp_next = temp_next->next;
+// 		free(temp);
+// 		temp = temp_next;
+// 	}
+// 	*lst = NULL;
+// 	free(temp);
+// }
 
 int	high_in_slack_whitout_ind(t_list *slack_a)
 {

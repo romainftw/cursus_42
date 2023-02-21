@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 17:48:18 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:08:59 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_stack
 	int		quote;
 }	t_stack;
 
-void	push_swap(char *tab);
 void	sa_function(t_stack **lst);
 void	pa_function(t_stack **ctx);
 void	pb_function(t_stack **ctx);
@@ -50,7 +49,6 @@ void	copy_slack(char	**str, t_stack *ctx);
 void	put_index_order(t_list **ctx);
 
 void	ft_lstsize(t_stack **ctx);
-void	ft_lstclear_pushswap(t_list **lst);
 void	choose_strat(int i, t_stack *slack_a);
 void	third_nb(t_stack **ctx);
 void	four_nb(t_stack **ctx);

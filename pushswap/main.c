@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:22:30 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 15:02:47 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:55:57 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	main(int arc, char **arg)
 
 	if (arc > 1)
 		parsing(arg, arc, &ctx);
-	//system("leaks push_swap");
+	system("leaks push_swap");
 	return (0);
 }
