@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 18:32:43 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:44:18 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	rad_x(t_stack **ctx)
 	int	j;
 	int	len;
 	int	i;
-
+// t_list *temp_a;
 	i = 0;
 	j = 0;
 	ft_lstsize(ctx);
@@ -84,22 +84,24 @@ void	rad_x(t_stack **ctx)
 	{
 		while (j < len)
 		{
-			if ((((*ctx)->a->place >> i) & 1) == 1)
-			{
-				printf("--------PB__________%d\n", (*ctx)->a->content);
+			if (!(((*ctx)->a->place >> i) & 1))
 				pb_function(ctx);
-			}
 			else
-			{
-				printf("---------RA-------%d\n", (*ctx)->a->content);
-				printf("---->-----PLACE-------%d\n", (*ctx)->a->place);
 				ra_function(ctx);
-			}
-			i++;
 			j++;
 		}
+		i++;
 		j = 0;
 		while ((*ctx)->b)
 			pa_function(ctx);
 	}
+	// temp_a = (*ctx)->a;
+	//     printf("------------A4---------------\n");
+    // while (temp_a)
+    // {
+    //  printf("------[%d]\n", temp_a->index);
+    //  printf("%d\n", temp_a->content);
+    //  temp_a = temp_a->next;
+    // }
+    // printf("------------A4---------------\n");
 }
