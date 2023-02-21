@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 11:15:45 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:32:43 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	third_nb(t_stack **ctx)
 void	four_nb(t_stack **ctx)
 {
 	int		low;
-	// t_list	*temp_a;
 
 	low = lowest_in_slack_no_ind((*ctx)->a);
 	while ((*ctx)->a->content != low)
@@ -53,20 +52,10 @@ void	four_nb(t_stack **ctx)
 	if (check_order_in_lst((*ctx)->a))
 		third_nb(ctx);
 	pa_function(ctx);
-	// temp_a = (*ctx)->a;
-	// printf("------------A4---------------\n");
-	// while (temp_a)
-	// {
-	// 	printf("------[%d]\n", temp_a->index);
-	// 	printf("%d\n", temp_a->content);
-	// 	temp_a = temp_a->next;
-	// }
-	// printf("------------A4---------------\n");
 }
 
 void	five_nb(t_stack **ctx)
 {
-	// t_list	*temp_a;
 	int		low;
 	int		i;
 
@@ -74,17 +63,43 @@ void	five_nb(t_stack **ctx)
 	low = lowest_in_slack_no_ind((*ctx)->a);
 	while ((*ctx)->a->content != low)
 		ra_function(ctx);
+	if (!check_order_in_lst((*ctx)->a))
+		ft_exit_succes();
 	pb_function(ctx);
 	four_nb(ctx);
 	pa_function(ctx);
-	// temp_a = (*ctx)->a;
-	// printf("------------A5---------------\n");
-	// while (temp_a)
-	// {
-	// 	printf("------[%d]\n", temp_a->index);
-	// 	printf("--[%d]\n", temp_a->place);
-	// 	printf("%d\n", temp_a->content);
-	// 	temp_a = temp_a->next;
-	// }
-	// printf("------------A5---------------\n");
+}
+
+void	rad_x(t_stack **ctx)
+{
+	int	j;
+	int	len;
+	int	i;
+
+	i = 0;
+	j = 0;
+	ft_lstsize(ctx);
+	len = (*ctx)->a->len;
+	while (check_order_in_lst((*ctx)->a))
+	{
+		while (j < len)
+		{
+			if ((((*ctx)->a->place >> i) & 1) == 1)
+			{
+				printf("--------PB__________%d\n", (*ctx)->a->content);
+				pb_function(ctx);
+			}
+			else
+			{
+				printf("---------RA-------%d\n", (*ctx)->a->content);
+				printf("---->-----PLACE-------%d\n", (*ctx)->a->place);
+				ra_function(ctx);
+			}
+			i++;
+			j++;
+		}
+		j = 0;
+		while ((*ctx)->b)
+			pa_function(ctx);
+	}
 }
