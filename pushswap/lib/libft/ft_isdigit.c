@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:48:57 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/01 12:47:34 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:10:01 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_isdigit(int c)
 {
+	if (!c)
+		return (0);
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);

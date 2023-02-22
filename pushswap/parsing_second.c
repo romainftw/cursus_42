@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parsing_second.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:10:51 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 17:51:21 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:48:10 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	copy_slack(char	**str, t_stack *ctx)
 {
-	int		nb_a;
-	int		c;
-	int		i;
+	long		nb_a;
+	int			c;
+	int			i;
 
 	c = 0;
 	nb_a = 0;
@@ -25,7 +25,7 @@ void	copy_slack(char	**str, t_stack *ctx)
 		ft_exit_succes();
 	while (str[i])
 	{
-		nb_a = ft_atoi(str[i]);
+		nb_a = ft_atoi_long(str[i]);
 		if (nb_a > 2147483647 || nb_a < (-2147483648))
 			ft_exit_fail();
 		ft_lstadd_back(&ctx->a, lst_new_neg((int)nb_a));

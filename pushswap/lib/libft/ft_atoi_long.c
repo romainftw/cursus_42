@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 11:42:18 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/05 11:51:49 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:40:23 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atoi_long(const char *str)
 {
-	int		neg;
-	int		i;
-	long	num;
+	long		neg;
+	int			i;
+	long		num;
 
 	i = 0;
 	neg = 1;
@@ -27,7 +27,7 @@ long	ft_atoi_long(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			neg *= -1;
+			neg = -1;
 		i++;
 	}
 	while (str[i] >= 48 && str[i] <= 57)

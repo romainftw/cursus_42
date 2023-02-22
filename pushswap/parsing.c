@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:09 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/21 20:35:34 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:32:33 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	parsing(char **arg, int arc, t_stack *ctx)
 	if (arc == 2)
 	{
 		temp = quote(arg[1]);
+		if (!temp[0])
+			ft_exit_succes();
 		ctx->quote = 0;
 		copy_slack(temp, ctx);
 		free_double_d(temp);
@@ -66,8 +68,7 @@ char	**quote(char *str)
 
 	j = 0;
 	i = -1;
-	if ((!str[0] && !ft_isdigit(str[1]))
-		|| !str[1])
+	if ((!str[0] && !ft_isdigit(str[1])) || !str[1])
 		ft_exit_succes();
 	temp = ft_split(str, ' ');
 	while (temp[++i])
@@ -79,7 +80,7 @@ char	**quote(char *str)
 			if ((!ft_isdigit(temp[i][j])) || (!check_double(temp, 0)))
 			{
 				free_double_d(temp);
-				ft_exit_succes();
+				ft_exit_fail();
 			}
 			j++;
 		}
@@ -100,10 +101,10 @@ int	check_double(char **str, long int j)
 	while (str[j])
 	{
 		i = j + 1;
-		nb_a = ft_atoi(str[j]);
+		nb_a = ft_atoi_long(str[j]);
 		while (str[i])
 		{
-			nb_b = ft_atoi(str[i]);
+			nb_b = ft_atoi_long(str[i]);
 			if (nb_a == nb_b)
 			{
 				ft_exit_fail();
