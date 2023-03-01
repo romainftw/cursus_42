@@ -1,9 +1,0 @@
-** PARSING ERRORS DETECTED, PLEASE REFER TO THE TESTS **
-
-** TOO MUCH MOVES FOR THESE TESTS (MAX = 12) **
-
-./push_swap 3 5 4 2 1 | wc -l
-
-./push_swap 5 4 3 2 1 | wc -l
-
-

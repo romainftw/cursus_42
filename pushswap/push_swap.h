@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:11:52 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/22 16:28:08 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:37:03 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	choose_strat(int i, t_stack *slack_a);
 void	third_nb(t_stack **ctx);
 void	four_nb(t_stack **ctx);
 void	five_nb(t_stack **ctx);
+void	special_ka(t_stack **ctx);
+void	special_kb(t_stack **ctx);
 void	rad_x(t_stack **ctx);
 
 int		check_neg_index(t_list **slack_a);

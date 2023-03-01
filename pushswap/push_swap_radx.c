@@ -6,7 +6,7 @@
 /*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:16:37 by roperrin          #+#    #+#             */
-/*   Updated: 2023/02/22 16:35:38 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:59:40 by roperrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ void	five_nb(t_stack **ctx)
 	int		i;
 
 	i = 0;
+	if (((*ctx)->a->index == 2 && (*ctx)->a->next->index == 4)
+		&& (((*ctx)->a->next->next->index == 3)
+			&& (*ctx)->a->next->next->next->index == 1))
+		special_ka(ctx);
+	if (((*ctx)->a->index == 4 && (*ctx)->a->next->index == 3)
+		&& (((*ctx)->a->next->next->index == 2)
+			&& (*ctx)->a->next->next->next->index == 1))
+		special_kb(ctx);
+	if (!check_order_in_lst((*ctx)->a))
+		ft_exit_succes();
 	low = lowest_in_slack_no_ind((*ctx)->a);
 	while ((*ctx)->a->content != low)
 		ra_function(ctx);
