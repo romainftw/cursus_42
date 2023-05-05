@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roperrin <roperrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: r <r@student.42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:35:17 by roperrin          #+#    #+#             */
-/*   Updated: 2022/11/29 21:37:58 by roperrin         ###   ########.fr       */
+/*   Updated: 2023/03/25 21:24:06 by r                ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void	ft_putstr(char const *s, int *count)
 
 void	ft_putnbr(int n, int *count)
 {
-	int	i;
-
-	i = 0;
 	if (n == -2147483648)
 		ft_putstr("-2147483648", count);
 	else
@@ -48,7 +45,6 @@ void	ft_putnbr(int n, int *count)
 		{
 			ft_putchar('-', count);
 			n = n * -1;
-			i += 1;
 		}
 		if (n > 9)
 			ft_putnbr((n / 10), count);
